@@ -1,13 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
-public class Card : MonoBehaviour
+public class Card : BaseInteractable
 {
-    [Inject]
-    private Player _player;
-
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI _fireText;
     [SerializeField] private TextMeshProUGUI _hackerText;
@@ -44,16 +40,9 @@ public class Card : MonoBehaviour
 
     }
 
-    public void Use()
+    public override void Use()
     {
-        _player.PlayerCards.AddCard(_info);
+        _player.Inventory.AddCard(_info);
         Destroy(gameObject);
-    }
-    protected virtual void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == _player.gameObject)
-        {
-            Use();
-        }
     }
 }

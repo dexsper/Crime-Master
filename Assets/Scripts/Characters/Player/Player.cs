@@ -6,9 +6,12 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
 
     private PlayerMovement _playerMovement;
-    private PlayerCards _playerCards;
-    public PlayerMovement PlayerMovement => _playerMovement;
-    public PlayerCards PlayerCards => _playerCards;
+    private PlayerInventory _playerInventory;
+    private PlayerEconomics _playerEconomics;
+
+    public PlayerEconomics Economics => _playerEconomics;
+    public PlayerMovement Movement => _playerMovement;
+    public PlayerInventory Inventory => _playerInventory;
 
     [Inject]
     private LevelManager _levelManager;
@@ -16,7 +19,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
-        _playerCards = GetComponent<PlayerCards>();
+        _playerInventory = GetComponent<PlayerInventory>();
+        _playerEconomics = GetComponent<PlayerEconomics>();
 
         _levelManager.OnLevelChanged.AddListener(Respawn);
     }

@@ -1927,7 +1927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5463113578655022691
 Transform:
   m_ObjectHideFlags: 0
@@ -1971,7 +1971,7 @@ MonoBehaviour:
   _fireText: {fileID: 5463113577162240004}
   _hackerText: {fileID: 5463113578404891609}
   _horrifyText: {fileID: 5463113578090420765}
-  costText: {fileID: 0}
+  costText: {fileID: 3982364155505286696}
   _iconImage: {fileID: 5463113577812435449}
   _costBorder: {fileID: 4163726122817416117}
   _backgroundBorder: {fileID: 5463113577987435152}

@@ -39,10 +39,10 @@ public class CardInfo : ScriptableObject, ICharacterStats
 
     public static Dictionary<CardTier, Color> TierColors = new Dictionary<CardTier, Color>
     {
-        {CardTier.One, new Color(191, 205, 208) },
-        {CardTier.Two, new Color(113, 198, 217) },
-        {CardTier.Three, new Color(225, 166, 77) },
-        {CardTier.Four, new Color(212, 99, 99) },
-        {CardTier.Item, new Color(66, 211, 81) }
+        {CardTier.One, new Color32(191, 205, 208, 255) },
+        {CardTier.Two, new Color32(113, 198, 217, 255) },
+        {CardTier.Three, new Color32(225, 166, 77, 255) },
+        {CardTier.Four, new Color32(212, 99, 99, 255) },
+        {CardTier.Item, new Color32(66, 211, 81, 255) }
     };
 }

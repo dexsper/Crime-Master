@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCards : MonoBehaviour
+public class PlayerInventory : MonoBehaviour
 {
     private List<CardInfo> _cards = new List<CardInfo>();
 

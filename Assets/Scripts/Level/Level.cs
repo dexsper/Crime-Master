@@ -12,7 +12,7 @@ public class CardSpawn
 public class Level : ScriptableObject
 {
     [Header("Cards")]
-    [Range(5, 20)]
+    [Range(10, 20)]
     [SerializeField] private float _cardSpace = 10f;
     [SerializeField] private List<CardSpawn> _cards;
 
@@ -20,7 +20,12 @@ public class Level : ScriptableObject
     [Range(1, 10)]
     [SerializeField] private float _trackScale = 1f;
 
+    [Header("Money")]
+    [Range(10, 20)]
+    [SerializeField] private float _moneySpace = 5f;
+
     public List<CardSpawn> Cards => _cards;
     public float CardSpace => _cardSpace;
     public float TrackScale => _trackScale;
+    public float MoneySpace => _moneySpace; 
 }
