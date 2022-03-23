@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
+        _playerCards = GetComponent<PlayerCards>();
+
         _levelManager.OnLevelChanged.AddListener(Respawn);
     }
 
