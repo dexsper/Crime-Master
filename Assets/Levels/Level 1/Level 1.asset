@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   _cardSpace: 10
-  _cards: []
+  _cards:
+  - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
+    CardTwo: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
   _trackScale: 1
