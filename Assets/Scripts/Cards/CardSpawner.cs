@@ -61,6 +61,8 @@ public class CardSpawner : MonoBehaviour
 
         card.transform.position = position;
         card.Setup(info);
+
+        card.gameObject.SetActive(true);
     }
 
     private void OnDrawGizmos()
