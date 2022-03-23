@@ -1728,7 +1728,7 @@ GameObject:
   - component: {fileID: 5463113578655022690}
   - component: {fileID: 5463113578655022693}
   m_Layer: 0
-  m_Name: Mercenary Card
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
