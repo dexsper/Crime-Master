@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -9,12 +8,16 @@ public class Card : MonoBehaviour
     [Inject]
     private Player _player;
 
+    [Header("Text")]
     [SerializeField] private TextMeshProUGUI _fireText;
     [SerializeField] private TextMeshProUGUI _hackerText;
     [SerializeField] private TextMeshProUGUI _horrifyText;
-    [SerializeField] private TextMeshProUGUI _priceText;
+    [SerializeField] private TextMeshProUGUI costText;
 
+    [Header("Images")]
     [SerializeField] private Image _iconImage;
+    [SerializeField] private Image _costBorder;
+    [SerializeField] private Image _backgroundBorder;
 
     private CardInfo _info;
 
@@ -23,15 +26,22 @@ public class Card : MonoBehaviour
         _info = info;
 
         if (_fireText != null)
-            _fireText.text = _info.FirePower.ToString();
+            _fireText.text = $"{info.FirePower}";
         if (_hackerText != null)
-            _hackerText.text = _info.HackerPower.ToString();
+            _hackerText.text = $"{info.HackerPower}";
         if (_horrifyText != null)
-            _horrifyText.text = _info.HackerPower.ToString();
-        if (_priceText != null)
-            _priceText.text = _info.Price.ToString();
+            _horrifyText.text = $"{info.HorrifyPower}";
+        if (costText != null)
+            costText.text = $"{info.Cost} $";
+
         if (_iconImage != null)
             _iconImage.sprite = _info.IconSprite;
+
+        if (_costBorder != null)
+            _costBorder.color = CardInfo.TierColors[info.Tier];        
+        if (_backgroundBorder != null)
+            _backgroundBorder.color = CardInfo.TierColors[info.Tier];
+
     }
 
     public void Use()
