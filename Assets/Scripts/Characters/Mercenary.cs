@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-[CreateAssetMenu( menuName = "Characters/Mercenary", fileName = "New Mercenary")]
+[CreateAssetMenu( menuName = "Cards/Mercenary", fileName = "New Mercenary")]
 public class Mercenary : ScriptableObject, ICharacterStats
 {
 
