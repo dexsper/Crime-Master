@@ -11,11 +11,16 @@ public class CardSpawn
 [CreateAssetMenu(fileName = "New Level", menuName = "Crime/Level")]
 public class Level : ScriptableObject
 {
+    [Header("Cards")]
     [Range(5, 20)]
     [SerializeField] private float _cardSpace = 10f;
+    [SerializeField] private List<CardSpawn> _cards;
 
-    [SerializeField] private List<CardSpawn> _cardSpawns;
+    [Header("Track")]
+    [Range(1, 10)]
+    [SerializeField] private float _trackScale = 1f;
 
-    public List<CardSpawn> CardSpawns => _cardSpawns;
+    public List<CardSpawn> Cards => _cards;
     public float CardSpace => _cardSpace;
+    public float TrackScale => _trackScale;
 }
