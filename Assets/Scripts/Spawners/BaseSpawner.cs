@@ -24,7 +24,7 @@ public abstract class BaseSpawner : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _levelManager.OnLevelChanged.AddListener(Spawn);
+        Spawn(_levelManager.CurrentLevel);
     }
     protected abstract void Spawn(Level level);
 

@@ -8,7 +8,7 @@ public class CardSpawner : BaseSpawner
     [SerializeField] protected float _horizontalSpacing = 1f;
 
     [Header("Prefabs")]
-    [SerializeField] private Card _cardPrefab;
+    [SerializeField] private WorldCard _cardPrefab;
 
     protected override void Spawn(Level level)
     {
@@ -34,7 +34,7 @@ public class CardSpawner : BaseSpawner
 
     private void SpawnCard(CardInfo info, Vector3 position)
     {
-        var card = _container.InstantiatePrefabForComponent<Card>(_cardPrefab.gameObject);
+        var card = _container.InstantiatePrefabForComponent<WorldCard>(_cardPrefab.gameObject);
 
         card.transform.position = position;
         card.Setup(info);

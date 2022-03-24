@@ -8,6 +8,14 @@ public class CardSpawn
     public CardInfo CardTwo;
 
 }
+
+public enum PlacesType
+{
+    Three,
+    Five,
+    Seven
+}
+
 [CreateAssetMenu(fileName = "New Level", menuName = "Crime/Level")]
 public class Level : ScriptableObject
 {
@@ -16,16 +24,15 @@ public class Level : ScriptableObject
     [SerializeField] private float _cardSpace = 10f;
     [SerializeField] private List<CardSpawn> _cards;
 
-    [Header("Track")]
-    [Range(1, 30)]
-    [SerializeField] private float _trackScale = 1f;
-
     [Header("Money")]
     [Range(10, 30)]
     [SerializeField] private float _moneySpace = 5f;
 
+    [Header("Robbery")]
+    [SerializeField] private PlacesType _places;
+
     public List<CardSpawn> Cards => _cards;
     public float CardSpace => _cardSpace;
-    public float TrackScale => _trackScale;
-    public float MoneySpace => _moneySpace; 
+    public float MoneySpace => _moneySpace;
+    public PlacesType Places => _places;
 }

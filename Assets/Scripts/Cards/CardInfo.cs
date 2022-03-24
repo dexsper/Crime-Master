@@ -22,8 +22,11 @@ public class CardInfo : ScriptableObject, ICharacterStats
     [SerializeField] private CardTier _tier;
 
     [Header("Abilities")]
+    [Range(1, 30)]
     [SerializeField] private int _firePower;
+    [Range(1, 30)]
     [SerializeField] private int _hackerPower;
+    [Range(1, 30)]
     [SerializeField] private int _horrifyPower;
 
     [Header("UI")]
