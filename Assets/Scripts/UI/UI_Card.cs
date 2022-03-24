@@ -2,8 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Card : BaseInteractable
+public class UI_Card : MonoBehaviour
 {
+    [SerializeField]
+    private CardInfo _cardInfo;
+
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI _fireText;
     [SerializeField] private TextMeshProUGUI _hackerText;
@@ -15,11 +18,17 @@ public class Card : BaseInteractable
     [SerializeField] private Image _costBorder;
     [SerializeField] private Image _backgroundBorder;
 
-    private CardInfo _info;
+    public CardInfo Info => _cardInfo;
+
+    private void Awake()
+    {
+        if (_cardInfo != null)
+            Setup(_cardInfo);
+    }
 
     public void Setup(CardInfo info)
     {
-        _info = info;
+        _cardInfo = info;
 
         if (_fireText != null)
             _fireText.text = $"{info.FirePower}";
@@ -31,27 +40,11 @@ public class Card : BaseInteractable
             costText.text = $"{info.Cost} $";
 
         if (_iconImage != null)
-            _iconImage.sprite = _info.IconSprite;
+            _iconImage.sprite = info.IconSprite;
 
         if (_costBorder != null)
-            _costBorder.color = CardInfo.TierColors[info.Tier];        
+            _costBorder.color = CardInfo.TierColors[info.Tier];
         if (_backgroundBorder != null)
             _backgroundBorder.color = CardInfo.TierColors[info.Tier];
-
-    }
-
-    public override void Use()
-    {
-        if (_player.Economics.EnoughMoney(_info.Cost))
-        {
-            _player.Economics.Take(_info.Cost);
-            _player.Inventory.AddCard(_info);
-        }
-        else
-        {
-            _player.Movement.AddBackForce();
-        }
-
-        Destroy(gameObject);
     }
 }

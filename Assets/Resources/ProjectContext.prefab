@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7016904823696178924}
   - component: {fileID: -6911907122219823541}
   - component: {fileID: -3676586029620617617}
+  - component: {fileID: -9087472908022714690}
+  - component: {fileID: 1149519779340878676}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -48,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: 1149519779340878676}
   - {fileID: -3676586029620617617}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
@@ -102,3 +105,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerEconomics: {fileID: -6911907122219823541}
   _playerInventory: {fileID: 7016904823696178924}
+--- !u!114 &-9087472908022714690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655224841413581838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40436d7b16c25924d8bfe4bfb0448410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startLevel: {fileID: 11400000, guid: 0465c6caff9e7ac42b57842c2f8cb2d1, type: 2}
+  OnLevelChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1149519779340878676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655224841413581838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29d319db7ae4894b8550b0b0696073d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelManager: {fileID: -9087472908022714690}

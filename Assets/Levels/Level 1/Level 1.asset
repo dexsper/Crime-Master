@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e437ed1bae947844c8bd2f72a0f09abf, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
+  _placesType: 3
+  _places:
+  - _firePower: 1
+    _hackerPower: 1
+    _horrifyPower: 1
+  - _firePower: 1
+    _hackerPower: 1
+    _horrifyPower: 1
+  - _firePower: 1
+    _hackerPower: 1
+    _horrifyPower: 1
   _cardSpace: 10
   _cards:
   - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
@@ -20,5 +31,4 @@ MonoBehaviour:
     CardTwo: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
   - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
     CardTwo: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
-  _trackScale: 30
   _moneySpace: 10
