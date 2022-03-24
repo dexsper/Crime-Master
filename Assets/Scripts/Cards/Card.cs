@@ -42,7 +42,16 @@ public class Card : BaseInteractable
 
     public override void Use()
     {
-        _player.Inventory.AddCard(_info);
+        if (_player.Economics.EnoughMoney(_info.Cost))
+        {
+            _player.Economics.Take(_info.Cost);
+            _player.Inventory.AddCard(_info);
+        }
+        else
+        {
+            _player.Movement.AddForce(transform.position);
+        }
+
         Destroy(gameObject);
     }
 }
