@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -12,13 +14,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _sideSpeed = 1.2f;
 
     [Header("Card Force")]
-    [Range(1, 10)] 
-    [SerializeField] private float _backForce = 1f;
+    [Range(100, 1000)]
+    [SerializeField] private float _backForce = 500f;
+    [Range(0, 2)]
+    [SerializeField] private float _forceTime = .7f;
 
     private Rigidbody _rigidbody;
 
     [Inject]
     private IInput _input;
+
+    public bool IsMove { get; private set; }
+    public bool IsForced { get; private set; }
+
 
     private void Awake()
     {
@@ -27,15 +35,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 direction = new Vector3(_input.Horizontal * _sideSpeed, 0f, _forwardSpeed);
+        if (IsForced == false)
+        {
+            Vector3 direction = new Vector3(_input.Horizontal * _sideSpeed, 0f, _forwardSpeed);
 
-        _rigidbody.MovePosition(transform.position + direction * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(transform.position + direction * Time.fixedDeltaTime);
+
+            IsMove = true;
+        }
+        else
+        {
+            IsMove = false;
+        }
     }
 
-    public void AddForce(Vector3 from)
+    public void AddBackForce()
     {
-        Vector3 direction = (from - transform.position).normalized;
+        StartCoroutine(ForceBack());
+    }
 
-        _rigidbody.AddForce(direction * _backForce); 
+    private IEnumerator ForceBack()
+    {
+        IsForced = true;
+        _rigidbody.AddForce(-transform.forward * _backForce * Time.deltaTime, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(_forceTime);
+
+        IsForced = false;
     }
 }

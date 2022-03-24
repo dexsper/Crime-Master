@@ -49,7 +49,7 @@ public class Card : BaseInteractable
         }
         else
         {
-            _player.Movement.AddForce(transform.position);
+            _player.Movement.AddBackForce();
         }
 
         Destroy(gameObject);
