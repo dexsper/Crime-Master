@@ -28,6 +28,8 @@ public class UI_Card : MonoBehaviour
 
     public void Setup(CardInfo info)
     {
+        _cardInfo = info;
+
         if (_fireText != null)
             _fireText.text = $"{info.FirePower}";
         if (_hackerText != null)

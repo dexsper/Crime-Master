@@ -6,9 +6,7 @@ using Zenject;
 public class Robbery : MonoBehaviour
 {
     [Header("Places Groups")]
-    [SerializeField] private List<CardPlace> _three;
-    [SerializeField] private List<CardPlace> _five;
-    [SerializeField] private List<CardPlace> _seven;
+    [SerializeField] private List<CardPlace> _allPlaces;
 
     [Header("Visual Settings")]
     [SerializeField] private ProgressBar _progressBar;
@@ -43,6 +41,7 @@ public class Robbery : MonoBehaviour
     private void StartRobbery()
     {
         isStart = true;
+        _startButton.interactable = false;
 
         float randomChange = Random.Range(0, 1f);
 
@@ -72,28 +71,24 @@ public class Robbery : MonoBehaviour
     }
     private void SetupPlaces()
     {
-        for (int i = 0; i < _seven.Count; i++)
+        for (int i = 0; i < _allPlaces.Count; i++)
         {
-            _seven[i].gameObject.SetActive(false);
+            _allPlaces[i].gameObject.SetActive(false);
         }
 
-        switch (_levelManager.CurrentLevel.Places)
-        {
-            case PlacesType.Three:
-                _places = _three;
-                break;
-            case PlacesType.Five:
-                _places = _five;
-                break;
-            case PlacesType.Seven:
-                _places = _seven;
-                break;
-        }
+        _places.Clear();
 
-        for (int i = 0; i < _places.Count; i++)
+        for (int i = 0; i < _levelManager.CurrentLevel.Places.Length; i++)
         {
+            if (i > _allPlaces.Count) break;
+
+            _places.Add(_allPlaces[i]);
+
             var place = _places[i];
             place.ResetInfo();
+
+            place.Setup(_levelManager.CurrentLevel.Places[i]);
+
             place.gameObject.SetActive(true);
         }
     }

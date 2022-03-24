@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
@@ -9,16 +11,31 @@ public class CardSpawn
 
 }
 
-public enum PlacesType
+[System.Serializable]
+public class PlaceInfo : IStats
 {
-    Three,
-    Five,
-    Seven
+
+    [Header("Require Abilities")]
+    [Range(1, 30)]
+    [SerializeField] private int _firePower;
+    [Range(1, 30)]
+    [SerializeField] private int _hackerPower;
+    [Range(1, 30)]
+    [SerializeField] private int _horrifyPower;
+
+    public int FirePower => _firePower;
+    public int HackerPower => _hackerPower;
+    public int HorrifyPower => _horrifyPower;
 }
 
+
 [CreateAssetMenu(fileName = "New Level", menuName = "Crime/Level")]
-public class Level : ScriptableObject
+public partial class Level : ScriptableObject
 {
+    [Header("Places")]
+    [SerializeField] private PlacesType _placesType = PlacesType.Three;
+    [SerializeField] private PlaceInfo[] _places = new PlaceInfo[3];
+
     [Header("Cards")]
     [Range(10, 20)]
     [SerializeField] private float _cardSpace = 10f;
@@ -28,11 +45,26 @@ public class Level : ScriptableObject
     [Range(10, 30)]
     [SerializeField] private float _moneySpace = 5f;
 
-    [Header("Robbery")]
-    [SerializeField] private PlacesType _places;
-
     public List<CardSpawn> Cards => _cards;
     public float CardSpace => _cardSpace;
     public float MoneySpace => _moneySpace;
-    public PlacesType Places => _places;
+
+    public PlaceInfo[] Places => _places;
+
+    private void OnValidate()
+    {
+        int size = (int)_placesType;
+
+        if (_places.Length != size)
+        {
+            Array.Resize(ref _places, size);
+        }
+    }
+
+    public enum PlacesType
+    {
+        Three = 3,
+        Five = 5,
+        Seven = 7
+    }
 }

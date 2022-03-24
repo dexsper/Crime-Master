@@ -2,21 +2,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardPlace : MonoBehaviour, IDropHandler, ICharacterStats
+public class CardPlace : MonoBehaviour, IDropHandler
 {
     [Header("Images")]
     [SerializeField] private Image _borderImage;
     [SerializeField] private Image _iconImage;
 
-    [Header("Require Abilities")]
-    [Range(1, 30)]
-    [SerializeField] private int _firePower;
-    [Range(1, 30)]
-    [SerializeField] private int _hackerPower;
-    [Range(1, 30)]
-    [SerializeField] private int _horrifyPower;
-
     private CardInfo _cardInfo;
+    private PlaceInfo _placeInfo;
 
     public float Chance
     {
@@ -24,11 +17,11 @@ public class CardPlace : MonoBehaviour, IDropHandler, ICharacterStats
         {
             float chance = 0f;
 
-            if (_cardInfo != null)
+            if (_cardInfo != null && _placeInfo != null)
             {
-                float fire = Mathf.Clamp01(_cardInfo.FirePower / _firePower);
-                float hacker = Mathf.Clamp01(_cardInfo.HackerPower / _hackerPower);
-                float horrify = Mathf.Clamp01(_cardInfo.HorrifyPower / _horrifyPower);
+                float fire = Mathf.Clamp01(_cardInfo.FirePower / _placeInfo.FirePower);
+                float hacker = Mathf.Clamp01(_cardInfo.HackerPower / _placeInfo.HackerPower);
+                float horrify = Mathf.Clamp01(_cardInfo.HorrifyPower / _placeInfo.HorrifyPower);
 
                 chance = Mathf.Clamp01((fire + hacker + horrify) / 3f);
             }
@@ -36,12 +29,13 @@ public class CardPlace : MonoBehaviour, IDropHandler, ICharacterStats
             return chance;
         }
     }
-    public int FirePower => _firePower;
-    public int HackerPower => _hackerPower;
-    public int HorrifyPower => _horrifyPower;
+
+    public void Setup(PlaceInfo info)
+    {
+        _placeInfo = info;
+    }
 
     public bool HasCard => _cardInfo != null;   
-
     public void OnDrop(PointerEventData eventData)
     {
         UI_Card card = eventData.pointerDrag.GetComponent<UI_Card>();
@@ -58,7 +52,6 @@ public class CardPlace : MonoBehaviour, IDropHandler, ICharacterStats
             Destroy(card.gameObject);
         }
     }
-
     public void ResetInfo()
     {
         _cardInfo = null;

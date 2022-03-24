@@ -43,6 +43,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4067aad6e42594ca215fa418f8ee5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4174135590595958650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701726986876716286}
+  - component: {fileID: 6034359688747902304}
+  m_Layer: 0
+  m_Name: Robbery Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &701726986876716286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174135590595958650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5656787480971831798}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6034359688747902304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174135590595958650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1337ad282139463409354ae6567e15c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _robberyPanel: {fileID: 0}
 --- !u!1 &5656787480410459689
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +136,7 @@ MonoBehaviour:
   - {fileID: 638140230}
   - {fileID: 5656787481863087288}
   - {fileID: 5656787480861266686}
+  - {fileID: 6034359688747902304}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -183,6 +228,7 @@ Transform:
   - {fileID: 5656787481863087289}
   - {fileID: 5656787480861266681}
   - {fileID: 638140229}
+  - {fileID: 701726986876716286}
   m_Father: {fileID: 5656787480410459688}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

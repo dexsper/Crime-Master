@@ -192,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3161558614082278378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -229,17 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a0f8fcc120118408033425921969f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _three:
-  - {fileID: 6060975192020826053}
-  - {fileID: 6060975191941073500}
-  - {fileID: 6060975191859207269}
-  _five:
-  - {fileID: 6060975192020826053}
-  - {fileID: 6060975191941073500}
-  - {fileID: 6060975191859207269}
-  - {fileID: 6060975192208620257}
-  - {fileID: 6060975192971147432}
-  _seven:
+  _allPlaces:
   - {fileID: 6060975192020826053}
   - {fileID: 6060975191941073500}
   - {fileID: 6060975191859207269}

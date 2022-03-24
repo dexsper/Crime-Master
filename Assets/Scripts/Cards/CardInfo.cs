@@ -14,7 +14,7 @@ public enum CardTier
 
 
 [CreateAssetMenu( menuName = "Crime/Card", fileName = "New Card")]
-public class CardInfo : ScriptableObject, ICharacterStats
+public class CardInfo : ScriptableObject, IStats
 {
 
     [Header("Main")]

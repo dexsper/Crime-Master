@@ -1921,6 +1921,7 @@ GameObject:
   - component: {fileID: 5463113578655022691}
   - component: {fileID: 5463113578655022690}
   - component: {fileID: 5463113578655022693}
+  - component: {fileID: 8536646139617072438}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -1968,7 +1969,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f47504bde609541ba395dd9f76590f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyEnabled: 1
   _destroyDistance: 7
+--- !u!114 &8536646139617072438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463113578655022688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff513ed76df5b9c4dadd28eb6bdec374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardInfo: {fileID: 0}
   _fireText: {fileID: 5463113577162240004}
   _hackerText: {fileID: 5463113578404891609}
   _horrifyText: {fileID: 5463113578090420765}
