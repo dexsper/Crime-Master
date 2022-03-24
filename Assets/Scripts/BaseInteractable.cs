@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using Zenject;
 
-public abstract class BaseInteractable : MonoBehaviour
+public abstract class BaseInteractable : DestroyObject
 {
-    [Inject]
-    protected Player _player;
-
     public abstract void Use();
 
     protected virtual void OnTriggerEnter(Collider other)

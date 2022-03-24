@@ -17,11 +17,11 @@ public class Level : ScriptableObject
     [SerializeField] private List<CardSpawn> _cards;
 
     [Header("Track")]
-    [Range(1, 10)]
+    [Range(1, 30)]
     [SerializeField] private float _trackScale = 1f;
 
     [Header("Money")]
-    [Range(10, 20)]
+    [Range(10, 30)]
     [SerializeField] private float _moneySpace = 5f;
 
     public List<CardSpawn> Cards => _cards;

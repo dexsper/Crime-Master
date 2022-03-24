@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Money : BaseInteractable
 {
+    [Header("Money")]
     [Range(1, 100)]
     [SerializeField] private int _amount;
 
@@ -19,8 +20,10 @@ public class Money : BaseInteractable
 
     private bool _isMoving = false;
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if(_isMoving == false && Vector3.Distance(_player.transform.position, transform.position) <= _distance)
         {
             _isMoving = true;

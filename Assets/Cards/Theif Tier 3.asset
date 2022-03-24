@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81f4e6a8e83a4842953d1a4a4874609, type: 3}
   m_Name: Theif Tier 3
   m_EditorClassIdentifier: 
-  _cost: 100
+  _cost: 200
   _tier: 2
   _firePower: 2
   _hackerPower: 5
