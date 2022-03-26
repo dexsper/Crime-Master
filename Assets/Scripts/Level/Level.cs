@@ -32,6 +32,13 @@ public class PlaceInfo : IStats
 [CreateAssetMenu(fileName = "New Level", menuName = "Crime/Level")]
 public partial class Level : ScriptableObject
 {
+    [Header("Info")]
+    [SerializeField] private string _levelName;
+
+    [Header("UI")]
+    [SerializeField] private Sprite _safeSprite;
+    [SerializeField] private GameObject _rabberyField; 
+
     [Header("Places")]
     [SerializeField] private PlacesType _placesType = PlacesType.Three;
     [SerializeField] private PlaceInfo[] _places = new PlaceInfo[3];
@@ -48,8 +55,10 @@ public partial class Level : ScriptableObject
     public List<CardSpawn> Cards => _cards;
     public float CardSpace => _cardSpace;
     public float MoneySpace => _moneySpace;
-
+    public string LevelName => _levelName;
     public PlaceInfo[] Places => _places;
+    public Sprite SafeSprite => _safeSprite;
+    public GameObject RrabberyField => _rabberyField;
 
     private void OnValidate()
     {

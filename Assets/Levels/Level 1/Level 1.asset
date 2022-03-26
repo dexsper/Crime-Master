@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e437ed1bae947844c8bd2f72a0f09abf, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
+  _levelName: Easy Heist
+  _safeSprite: {fileID: 21300000, guid: 55db68f4e22b03d46bf3dc3def83df1c, type: 3}
+  _rabberyField: {fileID: 0}
   _placesType: 3
   _places:
   - _firePower: 1
