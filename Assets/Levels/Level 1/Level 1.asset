@@ -14,18 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelName: Easy Heist
   _safeSprite: {fileID: 21300000, guid: 55db68f4e22b03d46bf3dc3def83df1c, type: 3}
-  _rabberyField: {fileID: 0}
-  _placesType: 3
-  _places:
-  - _firePower: 1
-    _hackerPower: 1
-    _horrifyPower: 1
-  - _firePower: 1
-    _hackerPower: 1
-    _horrifyPower: 1
-  - _firePower: 1
-    _hackerPower: 1
-    _horrifyPower: 1
+  _rabberyField: {fileID: 6442984456046906260, guid: 3f9c88ab650c5664bb35bc6c11ba811b, type: 3}
   _cardSpace: 10
   _cards:
   - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}

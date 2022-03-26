@@ -5,8 +5,7 @@ using Zenject;
 
 public class Robbery : MonoBehaviour
 {
-    [Header("Places Groups")]
-    [SerializeField] private List<CardPlace> _allPlaces;
+    [SerializeField] private Transform _placesParent;
 
     [Header("Visual Settings")]
     [SerializeField] private ProgressBar _progressBar;
@@ -71,25 +70,20 @@ public class Robbery : MonoBehaviour
     }
     private void SetupPlaces()
     {
-        for (int i = 0; i < _allPlaces.Count; i++)
-        {
-            _allPlaces[i].gameObject.SetActive(false);
-        }
-
         _places.Clear();
 
-        for (int i = 0; i < _levelManager.CurrentLevel.Places.Length; i++)
-        {
-            if (i > _allPlaces.Count) break;
+        var placeField = Instantiate(_levelManager.CurrentLevel.PlacesField, _placesParent);
 
-            _places.Add(_allPlaces[i]);
+        var places = placeField.GetComponentsInChildren<CardPlace>();
 
-            var place = _places[i];
+        for (int i = 0; i < places.Length; i++)
+        {      
+            var place = places[i];
+
             place.ResetInfo();
-
-            place.Setup(_levelManager.CurrentLevel.Places[i]);
-
             place.gameObject.SetActive(true);
+
+            _places.Add(place);
         }
     }
     private void Update()

@@ -4,12 +4,24 @@ using UnityEngine.UI;
 
 public class CardPlace : MonoBehaviour, IDropHandler
 {
+    [Header("Require Abilities")]
+    [Range(1, 30)]
+    [SerializeField] private int _firePower;
+    [Range(1, 30)]
+    [SerializeField] private int _hackerPower;
+    [Range(1, 30)]
+    [SerializeField] private int _horrifyPower;
+
+    public int FirePower => _firePower;
+    public int HackerPower => _hackerPower;
+    public int HorrifyPower => _horrifyPower;
+
     [Header("Images")]
     [SerializeField] private Image _borderImage;
     [SerializeField] private Image _iconImage;
 
     private CardInfo _cardInfo;
-    private PlaceInfo _placeInfo;
+    
 
     public float Chance
     {
@@ -17,22 +29,17 @@ public class CardPlace : MonoBehaviour, IDropHandler
         {
             float chance = 0f;
 
-            if (_cardInfo != null && _placeInfo != null)
+            if (_cardInfo != null)
             {
-                float fire = Mathf.Clamp01(_cardInfo.FirePower / _placeInfo.FirePower);
-                float hacker = Mathf.Clamp01(_cardInfo.HackerPower / _placeInfo.HackerPower);
-                float horrify = Mathf.Clamp01(_cardInfo.HorrifyPower / _placeInfo.HorrifyPower);
+                float fire = Mathf.Clamp01(_cardInfo.FirePower / FirePower);
+                float hacker = Mathf.Clamp01(_cardInfo.HackerPower / HackerPower);
+                float horrify = Mathf.Clamp01(_cardInfo.HorrifyPower / HorrifyPower);
 
                 chance = Mathf.Clamp01((fire + hacker + horrify) / 3f);
             }
 
             return chance;
         }
-    }
-
-    public void Setup(PlaceInfo info)
-    {
-        _placeInfo = info;
     }
 
     public bool HasCard => _cardInfo != null;   
