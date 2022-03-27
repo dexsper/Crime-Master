@@ -28,6 +28,9 @@ public class Robbery : MonoBehaviour
     [Inject]
     private FinalScreen _finalScreen;
 
+    [Inject]
+    private DiContainer _container;
+
     private bool isStart = false;
 
     private void Awake()
@@ -51,6 +54,12 @@ public class Robbery : MonoBehaviour
             Destroy(_placesParent.GetChild(i).gameObject);
         }
 
+        for (int i = 0; i < _cardsParent.childCount; i++)
+        {
+            Destroy(_cardsParent.GetChild(i).gameObject);
+        }
+
+
         _startButton.interactable = true;
     }
     private void Update()
@@ -67,6 +76,7 @@ public class Robbery : MonoBehaviour
             UpdateStartButton();
         }
     }
+
     private void StartRobbery()
     {
         isStart = true;
@@ -87,11 +97,6 @@ public class Robbery : MonoBehaviour
     }
     private void SetupCards()
     {
-        for (int i = 0; i < _cardsParent.childCount; i++)
-        {
-            Destroy(_cardsParent.GetChild(i).gameObject);
-        }
-
         for (int i = 0; i < _playerInventory.Cards.Count; i++)
         {
             var card = Instantiate(_cardPrefab);
@@ -102,7 +107,7 @@ public class Robbery : MonoBehaviour
     }
     private void SetupPlaces()
     {
-        var placeField = Instantiate(_levelManager.CurrentLevel.PlacesField, _placesParent);
+        var placeField = _container.InstantiatePrefab(_levelManager.CurrentLevel.PlacesField, _placesParent);
 
         var places = placeField.GetComponentsInChildren<CardPlace>();
 

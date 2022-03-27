@@ -21,11 +21,10 @@ public class CardPlace : MonoBehaviour, IDropHandler
     [SerializeField] private Image _borderImage;
     [SerializeField] private Image _iconImage;
 
-    private CardInfo _cardInfo;
-
     [Inject]
     private PlayerInventory _playerInventory;
-    
+
+    private CardInfo _cardInfo;
 
     public float Chance
     {
@@ -53,9 +52,9 @@ public class CardPlace : MonoBehaviour, IDropHandler
 
         if (card != null && _cardInfo == null)
         {
-            _playerInventory.Cards.Remove(_cardInfo);
-
             _cardInfo = card.Info;
+
+            _playerInventory.Cards.Remove(_cardInfo);
 
             _borderImage.color = CardInfo.TierColors[_cardInfo.Tier];
 
