@@ -47,7 +47,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
     {
         UI_Card card = eventData.pointerDrag.GetComponent<UI_Card>();
 
-        if (card != null)
+        if (card != null && _cardInfo == null)
         {
             _cardInfo = card.Info;
 

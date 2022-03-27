@@ -42,6 +42,17 @@ public class Robbery : MonoBehaviour
         SetupPlaces();
         SetupCards();
     }
+    private void OnDisable()
+    {
+        _places.Clear();
+
+        for (int i = 0; i < _placesParent.childCount; i++)
+        {
+            Destroy(_placesParent.GetChild(i).gameObject);
+        }
+
+        _startButton.interactable = true;
+    }
     private void Update()
     {
         if (isStart == false)
@@ -91,13 +102,6 @@ public class Robbery : MonoBehaviour
     }
     private void SetupPlaces()
     {
-        _places.Clear();
-
-        for (int i = 0; i < _placesParent.childCount; i++)
-        {
-            Destroy(_placesParent.GetChild(i).gameObject);
-        }
-
         var placeField = Instantiate(_levelManager.CurrentLevel.PlacesField, _placesParent);
 
         var places = placeField.GetComponentsInChildren<CardPlace>();
