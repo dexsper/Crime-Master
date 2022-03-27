@@ -16,17 +16,17 @@ public abstract class BaseSpawner : MonoBehaviour
     [SerializeField] protected Color _spacingColor = Color.blue;
 
     [Inject]
-    protected LevelManager _levelManager;
-
-    [Inject]
     protected DiContainer _container;
 
+    [Inject]
+    private LevelManager _levelManager;
 
-    protected virtual void Awake()
+    private void Awake()
     {
-        Spawn(_levelManager.CurrentLevel);
+        _levelManager.LevelChanged.AddListener(Spawn);
     }
-    protected abstract void Spawn(Level level);
+
+    public abstract void Spawn(Level level);
 
     private void OnDrawGizmos()
     {

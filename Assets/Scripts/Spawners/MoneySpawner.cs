@@ -6,7 +6,7 @@ public class MoneySpawner : BaseSpawner
     [SerializeField] private GameObject _moneyPrefab;
 
 
-    protected override void Spawn(Level level)
+    public override void Spawn(Level level)
     {
         int count = (int)(Vector3.Distance(_start.position, _end.position) / level.MoneySpace);
 

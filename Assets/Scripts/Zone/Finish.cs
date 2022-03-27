@@ -12,6 +12,9 @@ public class Finish : MonoBehaviour
     [Inject]
     private Robbery _robbery;
 
+    [Inject]
+    private FinalScreen _finalScreen;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == _player.gameObject)
@@ -19,7 +22,10 @@ public class Finish : MonoBehaviour
             _player.Movement.enabled = false;
             _input.Enabled = false;
 
-            _robbery.gameObject.SetActive(true);
+            if (_player.Inventory.Cards.Count > 0)
+                _robbery.gameObject.SetActive(true);
+            else
+                _finalScreen.ShowLose();
         }
     }
 }

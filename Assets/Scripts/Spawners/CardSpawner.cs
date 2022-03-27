@@ -10,7 +10,7 @@ public class CardSpawner : BaseSpawner
     [Header("Prefabs")]
     [SerializeField] private WorldCard _cardPrefab;
 
-    protected override void Spawn(Level level)
+    public override void Spawn(Level level)
     {
 
         for (int i = 0; i < level.Cards.Count; i++)

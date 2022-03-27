@@ -25,6 +25,9 @@ public class Robbery : MonoBehaviour
     [Inject]
     private PlayerInventory _playerInventory;
 
+    [Inject]
+    private FinalScreen _finalScreen;
+
     private bool isStart = false;
 
     private void Awake()
@@ -37,6 +40,20 @@ public class Robbery : MonoBehaviour
             _startButton.onClick.AddListener(StartRobbery);
         }
     }
+    private void Update()
+    {
+        if (isStart == false)
+        {
+            UpdateChance();
+
+            if (_progressBar != null)
+            {
+                _progressBar.SetProgress(Chance);
+            }
+
+            UpdateStartButton();
+        }
+    }
     private void StartRobbery()
     {
         isStart = true;
@@ -46,11 +63,13 @@ public class Robbery : MonoBehaviour
 
         if(Chance >= randomChange)
         {
-            Debug.Log("Win");
+            _finalScreen.ShowSuccess();
+            gameObject.SetActive(false);
         }
         else
         {
-            Debug.Log("Lose");
+            _finalScreen.ShowLose();
+            gameObject.SetActive(false);
         }
     }
     private void SetupCards()
@@ -84,20 +103,6 @@ public class Robbery : MonoBehaviour
             place.gameObject.SetActive(true);
 
             _places.Add(place);
-        }
-    }
-    private void Update()
-    {
-        if (isStart == false)
-        {
-            UpdateChance();
-
-            if (_progressBar != null)
-            {
-                _progressBar.SetProgress(Chance);
-            }
-
-            UpdateStartButton();
         }
     }
     private void UpdateStartButton()
