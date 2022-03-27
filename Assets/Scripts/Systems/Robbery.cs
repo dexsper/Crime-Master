@@ -32,13 +32,15 @@ public class Robbery : MonoBehaviour
 
     private void Awake()
     {
-        SetupPlaces();
-        SetupCards();
-
         if(_startButton != null)
         {
             _startButton.onClick.AddListener(StartRobbery);
         }
+    }
+    private void OnEnable()
+    {
+        SetupPlaces();
+        SetupCards();
     }
     private void Update()
     {
@@ -90,6 +92,11 @@ public class Robbery : MonoBehaviour
     private void SetupPlaces()
     {
         _places.Clear();
+
+        for (int i = 0; i < _placesParent.childCount; i++)
+        {
+            Destroy(_placesParent.GetChild(i).gameObject);
+        }
 
         var placeField = Instantiate(_levelManager.CurrentLevel.PlacesField, _placesParent);
 
