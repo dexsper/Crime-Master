@@ -47,6 +47,8 @@ public class Robbery : MonoBehaviour
     }
     private void OnDisable()
     {
+        isStart = false;
+
         _places.Clear();
 
         for (int i = 0; i < _placesParent.childCount; i++)
