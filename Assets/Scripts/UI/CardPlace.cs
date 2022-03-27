@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Zenject;
 
 public class CardPlace : MonoBehaviour, IDropHandler
 {
@@ -21,6 +22,9 @@ public class CardPlace : MonoBehaviour, IDropHandler
     [SerializeField] private Image _iconImage;
 
     private CardInfo _cardInfo;
+
+    [Inject]
+    private PlayerInventory _playerInventory;
     
 
     public float Chance
@@ -49,6 +53,8 @@ public class CardPlace : MonoBehaviour, IDropHandler
 
         if (card != null && _cardInfo == null)
         {
+            _playerInventory.Cards.Remove(_cardInfo);
+
             _cardInfo = card.Info;
 
             _borderImage.color = CardInfo.TierColors[_cardInfo.Tier];
