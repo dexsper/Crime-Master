@@ -22,10 +22,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
+        _levelManager.LevelChanged.AddListener(Respawn);
     }
 
-    public void Respawn()
+    public void Respawn(Level level)
     {
         transform.position = _spawnPoint.transform.position;
+        Movement.enabled = true;
     }
 }

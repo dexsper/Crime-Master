@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
@@ -7,7 +8,9 @@ public class LevelManager : MonoBehaviour
 
     public Level CurrentLevel { get; private set; }
 
-    private void Awake()
+    public UnityEvent<Level> LevelChanged;
+
+    private void Start()
     {
         if (_startLevel == null)
             throw new NullReferenceException("Start level can't be null");
@@ -17,5 +20,6 @@ public class LevelManager : MonoBehaviour
     public void ChangeLevel(Level startLevel)
     {
         CurrentLevel = startLevel;
+        LevelChanged?.Invoke(CurrentLevel);
     }
 }

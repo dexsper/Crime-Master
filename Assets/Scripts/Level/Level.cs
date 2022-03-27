@@ -11,30 +11,16 @@ public class CardSpawn
 
 }
 
-[System.Serializable]
-public class PlaceInfo : IStats
-{
-
-    [Header("Require Abilities")]
-    [Range(1, 30)]
-    [SerializeField] private int _firePower;
-    [Range(1, 30)]
-    [SerializeField] private int _hackerPower;
-    [Range(1, 30)]
-    [SerializeField] private int _horrifyPower;
-
-    public int FirePower => _firePower;
-    public int HackerPower => _hackerPower;
-    public int HorrifyPower => _horrifyPower;
-}
-
 
 [CreateAssetMenu(fileName = "New Level", menuName = "Crime/Level")]
 public partial class Level : ScriptableObject
 {
-    [Header("Places")]
-    [SerializeField] private PlacesType _placesType = PlacesType.Three;
-    [SerializeField] private PlaceInfo[] _places = new PlaceInfo[3];
+    [Header("Info")]
+    [SerializeField] private string _levelName;
+
+    [Header("UI")]
+    [SerializeField] private Sprite _safeSprite;
+    [SerializeField] private GameObject _rabberyField; 
 
     [Header("Cards")]
     [Range(10, 20)]
@@ -48,23 +34,18 @@ public partial class Level : ScriptableObject
     public List<CardSpawn> Cards => _cards;
     public float CardSpace => _cardSpace;
     public float MoneySpace => _moneySpace;
-
-    public PlaceInfo[] Places => _places;
-
-    private void OnValidate()
+    public string LevelName => _levelName;
+    public CardPlace[] Places
     {
-        int size = (int)_placesType;
-
-        if (_places.Length != size)
+        get
         {
-            Array.Resize(ref _places, size);
+            if (_rabberyField == null)
+                return new CardPlace[0];
+
+            return _rabberyField.GetComponentsInChildren<CardPlace>();
         }
     }
+    public Sprite SafeSprite => _safeSprite;
+    public GameObject PlacesField => _rabberyField;
 
-    public enum PlacesType
-    {
-        Three = 3,
-        Five = 5,
-        Seven = 7
-    }
 }
