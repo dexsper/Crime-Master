@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: 393327735}
   - {fileID: 638140230}
   - {fileID: 5656787481863087288}
   - {fileID: 5656787480861266686}
