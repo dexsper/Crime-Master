@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3170461042207323414}
   - component: {fileID: 3170461042205027721}
   - component: {fileID: 3170461042205027720}
+  - component: {fileID: 212306114806238093}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -95,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce1066988f8aaa44b011385842cd745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyEnabled: 1
+  _destroyDistance: 7
   _amount: 5
   _distance: 1.5
   _moveDuration: 0.15
@@ -113,3 +116,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.39025307, y: 0.14453635, z: 0.767715}
   m_Center: {x: -0.0000047683716, y: 0.07226862, z: -0.0000011920929}
+--- !u!95 &212306114806238093
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3170461042205125590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bce4d2840a89a9c4e8643a3aa272e5f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

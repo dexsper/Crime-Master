@@ -14,7 +14,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -124,8 +124,8 @@ Material:
     - _RampOffset: 0
     - _RampScale: 1
     - _RampSmooth: 0.1
-    - _RampSmoothing: 1
-    - _RampThreshold: 0.6
+    - _RampSmoothing: 0.577
+    - _RampThreshold: 0.263
     - _RampType: 0
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1

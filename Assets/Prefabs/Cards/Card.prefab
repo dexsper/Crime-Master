@@ -1922,6 +1922,7 @@ GameObject:
   - component: {fileID: 5463113578655022690}
   - component: {fileID: 5463113578655022693}
   - component: {fileID: 8536646139617072438}
+  - component: {fileID: 7099733832718374752}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -1938,7 +1939,7 @@ Transform:
   m_GameObject: {fileID: 5463113578655022688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6486063, y: 1.6486063, z: 1.6486063}
+  m_LocalScale: {x: 1.65, y: 1.65, z: 1.65}
   m_Children:
   - {fileID: 5463113577856346008}
   m_Father: {fileID: 0}
@@ -1991,3 +1992,22 @@ MonoBehaviour:
   _iconImage: {fileID: 5463113577812435449}
   _costBorder: {fileID: 4163726122817416117}
   _backgroundBorder: {fileID: 5463113577987435152}
+--- !u!95 &7099733832718374752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463113578655022688}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fecd5a1d48dc2bb4788e5e380f211a0f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
