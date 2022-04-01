@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private Level _startLevel;
+    [SerializeField] private Level[] _levels;
 
     public Level CurrentLevel { get; private set; }
 
@@ -12,9 +12,10 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        if (_startLevel == null)
+        if (_levels == null)
             throw new NullReferenceException("Start level can't be null");
-        ChangeLevel(_startLevel);
+
+        ChangeLevel(_levels[0]);
     }
 
     public void ChangeLevel(Level startLevel)

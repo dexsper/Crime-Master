@@ -1,8 +1,14 @@
+using Cinemachine;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
 public class FinalScreen : MonoBehaviour
 {
+    [Header("Cameras")]
+    [SerializeField] private CinemachineVirtualCamera _playerCamera;
+    [SerializeField] private CinemachineVirtualCamera _cityCamera;
+
     [Header("Panels")]
     [SerializeField] private GameObject _successPanel;
     [SerializeField] private GameObject _losePanel;
@@ -20,13 +26,12 @@ public class FinalScreen : MonoBehaviour
 
         _levelManager.ChangeLevel(_levelManager.CurrentLevel);
 
-        _input.Enabled = true;
-
+        StartCoroutine(ShowCity());
     }
     public void NextLevel()
     {
         _successPanel.gameObject.SetActive(false);
-        _input.Enabled = true;
+        StartCoroutine(ShowCity());
     }
 
     public void ShowLose()
@@ -37,5 +42,16 @@ public class FinalScreen : MonoBehaviour
     public void ShowSuccess()
     {
         _successPanel.gameObject.SetActive(true);
+    }
+
+    private IEnumerator ShowCity()
+    {
+
+        _playerCamera.Priority = 0;
+        while (_cityCamera.m_Lens.FieldOfView < 70)
+        {
+            _cityCamera.m_Lens.FieldOfView += 1.5f;
+            yield return new WaitForSeconds(.02f);
+        }
     }
 }

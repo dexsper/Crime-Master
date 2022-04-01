@@ -1,4 +1,5 @@
-using System;
+using Cinemachine;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -7,6 +8,15 @@ using Zenject;
 
 public class LevelStart : MonoBehaviour
 {
+
+    [Header("Cameras")]
+    [SerializeField] private CinemachineVirtualCamera _playerCamera;
+    [SerializeField] private CinemachineVirtualCamera _cityCamera;
+
+    [Header("Panels")]
+    [SerializeField] private GameObject _bloorPanel;
+    [SerializeField] private GameObject _contentPanel;
+
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI _levelNameText;
     [SerializeField] private TextMeshProUGUI _fireText;
@@ -25,16 +35,16 @@ public class LevelStart : MonoBehaviour
     [Inject]
     private IInput _input;
 
-    private void Start()
+    private void OnEnable()
     {
-        _input.Enabled = false;
-        _player.Movement.enabled = false;
-
         SetupInterface();
     }
 
     private void SetupInterface()
     {
+        _bloorPanel.SetActive(true);
+        _contentPanel.SetActive(true);
+
         var level = _levelManager.CurrentLevel;
 
         int firePower = level.Places.Sum(x => x.FirePower);
@@ -56,9 +66,26 @@ public class LevelStart : MonoBehaviour
 
     public void StartLevel()
     {
-        _input.Enabled = true;
-        _player.Movement.enabled = true;
+        _bloorPanel.SetActive(false);
+        _contentPanel.SetActive(false);
+
+        StartCoroutine(ShowPlayer());
+    }
+
+
+    private IEnumerator ShowPlayer()
+    {
+
+        while (_cityCamera.m_Lens.FieldOfView > 20)
+        {
+            _cityCamera.m_Lens.FieldOfView -= 1.5f;
+            yield return new WaitForSeconds(.02f);
+        }
+
+        _playerCamera.Priority = 1;
 
         gameObject.SetActive(false);
+        _input.Enabled = true;
+        _player.Movement.enabled = true;
     }
 }
