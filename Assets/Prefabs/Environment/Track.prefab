@@ -1276,6 +1276,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4584169743059442421}
   - component: {fileID: 3018768731276454442}
+  - component: {fileID: 1459214673967177474}
+  - component: {fileID: 4132906657527486075}
   m_Layer: 0
   m_Name: Props
   m_TagString: Untagged
@@ -1325,6 +1327,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.4461417, y: 0.37020418, z: 110.98241}
   m_Center: {x: 0.043100074, y: -0.31489825, z: 51.433754}
+--- !u!65 &1459214673967177474
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831039544982286675}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999976, y: 2.0582108, z: 110.86257}
+  m_Center: {x: -3.5, y: 0.5291049, z: 51.43864}
+--- !u!65 &4132906657527486075
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831039544982286675}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9999998, y: 2.058211, z: 110.8626}
+  m_Center: {x: 3.5, y: 0.5291049, z: 51.43864}
 --- !u!1 &8255132506064173836
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,5 @@ public class Player : MonoBehaviour
     public void Respawn(Level level)
     {
         transform.position = _spawnPoint.transform.position;
-        Movement.enabled = true;
     }
 }
