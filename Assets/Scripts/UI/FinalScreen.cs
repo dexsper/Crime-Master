@@ -27,13 +27,13 @@ public class FinalScreen : MonoBehaviour
         _levelManager.ChangeLevel(_levelManager.CurrentLevel);
         StartCoroutine(DisableFinishPanel());
 
-        StartCoroutine(ShowCity());
+        ShowCity();
     }
     public void NextLevel()
     {
         // _successPanel.gameObject.SetActive(false);
         StartCoroutine(DisableFinishPanel());
-        StartCoroutine(ShowCity());
+        ShowCity();
     }
 
     public void ShowLose()
@@ -53,17 +53,13 @@ public class FinalScreen : MonoBehaviour
     private IEnumerator DisableFinishPanel()
     {
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }
 
-    private IEnumerator ShowCity()
+    private void ShowCity()
     {
-        _playerCamera.Priority = 0;
-        while (_cityCamera.m_Lens.FieldOfView < 70)
-        {
-            _cityCamera.m_Lens.FieldOfView += 1.5f;
-            yield return new WaitForSeconds(.02f);
-        }
+        _playerCamera.Priority = -1;
+        DOTween.To(() => _cityCamera.m_Lens.FieldOfView, x => _cityCamera.m_Lens.FieldOfView = x, 70, 1.5f).SetEase(Ease.InOutBack);
     }
 }

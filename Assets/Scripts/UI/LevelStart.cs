@@ -74,20 +74,16 @@ public class LevelStart : MonoBehaviour
     private IEnumerator DisableStartPanel()
     {
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }
 
     private IEnumerator ShowPlayer()
     {
-        while (_cityCamera.m_Lens.FieldOfView > 20)
-        {
-            _cityCamera.m_Lens.FieldOfView -= 1.5f;
-            yield return new WaitForSeconds(.02f);
-        }
+        DOTween.To(() => _cityCamera.m_Lens.FieldOfView, x => _cityCamera.m_Lens.FieldOfView = x, 20, 1.5f).SetEase(Ease.InBack);
+        yield return new WaitForSeconds(1.5f);
 
         _playerCamera.Priority = 1;
-
         _input.Enabled = true;
         _player.Movement.enabled = true;
     }
