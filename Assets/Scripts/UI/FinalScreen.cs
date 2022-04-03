@@ -2,7 +2,7 @@ using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using Zenject;
-
+using DG.Tweening;
 public class FinalScreen : MonoBehaviour
 {
     [Header("Cameras")]
@@ -21,32 +21,44 @@ public class FinalScreen : MonoBehaviour
 
     public void RestartLevel()
     {
-        _successPanel.gameObject.SetActive(false);
-        _losePanel.gameObject.SetActive(false);
+        // _successPanel.gameObject.SetActive(false);
+        // _losePanel.gameObject.SetActive(false);
 
         _levelManager.ChangeLevel(_levelManager.CurrentLevel);
+        StartCoroutine(DisableFinishPanel());
 
         StartCoroutine(ShowCity());
     }
     public void NextLevel()
     {
-        _successPanel.gameObject.SetActive(false);
+        // _successPanel.gameObject.SetActive(false);
+        StartCoroutine(DisableFinishPanel());
         StartCoroutine(ShowCity());
     }
 
     public void ShowLose()
     {
+        _losePanel.transform.localScale = Vector3.zero;
         _losePanel.gameObject.SetActive(true);
+        _losePanel.transform.DOScale(Vector3.one, 0.5f);
     }
 
     public void ShowSuccess()
     {
+        _successPanel.transform.localScale = Vector3.zero;
         _successPanel.gameObject.SetActive(true);
+        _successPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+    }
+
+    private IEnumerator DisableFinishPanel()
+    {
+        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
     }
 
     private IEnumerator ShowCity()
     {
-
         _playerCamera.Priority = 0;
         while (_cityCamera.m_Lens.FieldOfView < 70)
         {

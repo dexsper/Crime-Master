@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using DG.Tweening;
 
 public class LevelStart : MonoBehaviour
 {
@@ -66,16 +67,19 @@ public class LevelStart : MonoBehaviour
 
     public void StartLevel()
     {
-        _bloorPanel.SetActive(false);
-        _contentPanel.SetActive(false);
-
+        StartCoroutine(DisableStartPanel());
         StartCoroutine(ShowPlayer());
     }
 
+    private IEnumerator DisableStartPanel()
+    {
+        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
+    }
 
     private IEnumerator ShowPlayer()
     {
-
         while (_cityCamera.m_Lens.FieldOfView > 20)
         {
             _cityCamera.m_Lens.FieldOfView -= 1.5f;
@@ -84,7 +88,6 @@ public class LevelStart : MonoBehaviour
 
         _playerCamera.Priority = 1;
 
-        gameObject.SetActive(false);
         _input.Enabled = true;
         _player.Movement.enabled = true;
     }

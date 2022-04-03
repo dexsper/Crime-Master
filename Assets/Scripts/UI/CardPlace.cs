@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
+using DG.Tweening;
+using System.Collections;
 
 public class CardPlace : MonoBehaviour, IDropHandler
 {
@@ -45,7 +47,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
         }
     }
 
-    public bool HasCard => _cardInfo != null;   
+    public bool HasCard => _cardInfo != null;
     public void OnDrop(PointerEventData eventData)
     {
         UI_Card card = eventData.pointerDrag.GetComponent<UI_Card>();
@@ -58,11 +60,15 @@ public class CardPlace : MonoBehaviour, IDropHandler
 
             _borderImage.color = CardInfo.TierColors[_cardInfo.Tier];
 
+            _iconImage.transform.localScale = Vector3.zero;
             _iconImage.sprite = _cardInfo.IconSprite;
-            _iconImage.color = Color.white;
+            _iconImage.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
 
-            Destroy(card.gameObject);
+            _iconImage.color = Color.white;
+            card.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
+            Destroy(card.gameObject, 0.3f);
         }
+
     }
     public void ResetInfo()
     {
@@ -71,4 +77,6 @@ public class CardPlace : MonoBehaviour, IDropHandler
         _borderImage.color = Color.white;
         _iconImage.sprite = null;
     }
+
+
 }

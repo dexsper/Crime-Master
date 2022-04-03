@@ -1,6 +1,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
-
+using System.Collections;
+using DG.Tweening;
 public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private Camera _camera;
@@ -32,9 +33,18 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(_defaultParent);
+        StartCoroutine(HandleEndDrag());
+    }
 
+    public IEnumerator HandleEndDrag()
+    {
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
+
+        transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
+        yield return new WaitForSeconds(0.3f);
+        transform.SetParent(_defaultParent);
+        transform.DOScale(Vector3.one * 2, 0.3f).SetEase(Ease.OutBack);
+
     }
 }
