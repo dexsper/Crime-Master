@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ProgressBar : MonoBehaviour
 {
@@ -9,6 +10,6 @@ public class ProgressBar : MonoBehaviour
     {
         value = Mathf.Clamp01(value);
 
-        _fillImage.fillAmount = value;
+        _fillImage.DOFillAmount(value, 0.3f).SetEase(Ease.OutBack);
     }
 }

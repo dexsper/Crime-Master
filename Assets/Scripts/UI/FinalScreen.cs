@@ -19,11 +19,11 @@ public class FinalScreen : MonoBehaviour
     [Inject]
     private IInput _input;
 
+    [Inject]
+    private Player _player;
+
     public void RestartLevel()
     {
-        // _successPanel.gameObject.SetActive(false);
-        // _losePanel.gameObject.SetActive(false);
-
         _levelManager.ChangeLevel(_levelManager.CurrentLevel);
         StartCoroutine(DisableFinishPanel());
 
@@ -31,7 +31,6 @@ public class FinalScreen : MonoBehaviour
     }
     public void NextLevel()
     {
-        // _successPanel.gameObject.SetActive(false);
         StartCoroutine(DisableFinishPanel());
         ShowCity();
     }
@@ -54,6 +53,7 @@ public class FinalScreen : MonoBehaviour
     {
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(2f);
+        _player.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 

@@ -62,7 +62,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
 
             _iconImage.transform.localScale = Vector3.zero;
             _iconImage.sprite = _cardInfo.IconSprite;
-            _iconImage.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+            _iconImage.transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutBack);
 
             _iconImage.color = Color.white;
             card.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);

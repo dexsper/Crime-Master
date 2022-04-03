@@ -17,11 +17,11 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == _player.gameObject)
+        if (other.gameObject == _player.gameObject)
         {
             _player.Movement.enabled = false;
             _input.Enabled = false;
-
+            _player.gameObject.SetActive(false);
             if (_player.Inventory.Cards.Count > 0)
                 _robbery.gameObject.SetActive(true);
             else

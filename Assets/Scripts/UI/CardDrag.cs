@@ -8,6 +8,7 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
     private Vector2 _offset;
     private Transform _defaultParent;
     private CanvasGroup _canvasGroup;
+    private Tween _lastTween;
 
     private void Awake()
     {
@@ -41,10 +42,15 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
 
-        transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
+        _lastTween = transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(0.3f);
         transform.SetParent(_defaultParent);
-        transform.DOScale(Vector3.one * 2, 0.3f).SetEase(Ease.OutBack);
+        _lastTween = transform.DOScale(Vector3.one * 2, 0.3f).SetEase(Ease.OutBack);
 
+    }
+
+    private void OnDestroy()
+    {
+        _lastTween.Complete();
     }
 }
