@@ -58,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
     {
         IsForced = true;
         _rigidbody.AddForce(-transform.forward * _backForce * Time.deltaTime, ForceMode.Impulse);
-
         yield return new WaitForSeconds(_forceTime);
 
         IsForced = false;

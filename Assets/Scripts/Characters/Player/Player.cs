@@ -1,5 +1,6 @@
 using UnityEngine;
 using Zenject;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
     [Inject]
     private PlayerEconomics _playerEconomics;
 
+    [SerializeField] private List<ParticleSystem> moodParticles = new List<ParticleSystem>();
+
+
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
@@ -29,4 +33,15 @@ public class Player : MonoBehaviour
     {
         transform.position = _spawnPoint.transform.position;
     }
+
+    public void PlayBadMoodParticles()
+    {
+        moodParticles[0].Play();
+    }
+
+    public void PlayGoodMoodParticles()
+    {
+        moodParticles[1].Play();
+    }
+
 }
