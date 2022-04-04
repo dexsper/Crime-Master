@@ -37,6 +37,7 @@ public class FinalScreen : MonoBehaviour
 
     public void ShowLose()
     {
+        transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         _losePanel.transform.localScale = Vector3.zero;
         _losePanel.gameObject.SetActive(true);
         _losePanel.transform.DOScale(Vector3.one, 0.5f);
@@ -44,6 +45,7 @@ public class FinalScreen : MonoBehaviour
 
     public void ShowSuccess()
     {
+        transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         _successPanel.transform.localScale = Vector3.zero;
         _successPanel.gameObject.SetActive(true);
         _successPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
@@ -54,7 +56,9 @@ public class FinalScreen : MonoBehaviour
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(2f);
         _player.gameObject.SetActive(true);
-        gameObject.SetActive(false);
+        _successPanel.gameObject.SetActive(false);
+        _losePanel.gameObject.SetActive(false);
+
     }
 
     private void ShowCity()

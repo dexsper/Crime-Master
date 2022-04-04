@@ -46,7 +46,6 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         yield return new WaitForSeconds(0.3f);
         transform.SetParent(_defaultParent);
         _lastTween = transform.DOScale(Vector3.one * 2, 0.3f).SetEase(Ease.OutBack);
-
     }
 
     private void OnDestroy()
