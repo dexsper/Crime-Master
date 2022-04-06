@@ -49,6 +49,11 @@ public class Robbery : MonoBehaviour
     {
         isStart = false;
 
+        for (int i = 0; i < _places.Count; i++)
+        {
+            _places[i].OnChanceChanged.RemoveAllListeners();
+        }
+
         _places.Clear();
 
         for (int i = 0; i < _placesParent.childCount; i++)
@@ -78,6 +83,7 @@ public class Robbery : MonoBehaviour
             UpdateStartButton();
         }
     }
+
 
     private void StartRobbery()
     {
@@ -121,6 +127,7 @@ public class Robbery : MonoBehaviour
             place.gameObject.SetActive(true);
 
             _places.Add(place);
+            place.OnChanceChanged.AddListener(UpdateChance);
         }
     }
     private void UpdateStartButton()

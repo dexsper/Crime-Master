@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Zenject;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine.Events;
 
 public class CardPlace : MonoBehaviour, IDropHandler
 {
@@ -25,29 +26,13 @@ public class CardPlace : MonoBehaviour, IDropHandler
 
     [Inject]
     private PlayerInventory _playerInventory;
-
     private CardInfo _cardInfo;
 
-    public float Chance
-    {
-        get
-        {
-            float chance = 0f;
-
-            if (_cardInfo != null)
-            {
-                float fire = Mathf.Clamp01(_cardInfo.FirePower / FirePower);
-                float hacker = Mathf.Clamp01(_cardInfo.HackerPower / HackerPower);
-                float horrify = Mathf.Clamp01(_cardInfo.HorrifyPower / HorrifyPower);
-
-                chance = Mathf.Clamp01((fire + hacker + horrify) / 3f);
-            }
-
-            return chance;
-        }
-    }
-
+    public float Chance { get; private set; }
     public bool HasCard => _cardInfo != null;
+    public UnityEvent OnChanceChanged;
+
+
     public void OnDrop(PointerEventData eventData)
     {
         UI_Card card = eventData.pointerDrag.GetComponent<UI_Card>();
@@ -67,6 +52,9 @@ public class CardPlace : MonoBehaviour, IDropHandler
             _iconImage.color = Color.white;
             // card.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
             Destroy(card.gameObject, 0.3f);
+
+            Chance = GetChance();
+            OnChanceChanged?.Invoke();
         }
 
     }
@@ -79,4 +67,19 @@ public class CardPlace : MonoBehaviour, IDropHandler
     }
 
 
+    private float GetChance()
+    {
+        float chance = 0f;
+
+        if (_cardInfo != null)
+        {
+            float fire = Mathf.Clamp01(_cardInfo.FirePower / FirePower);
+            float hacker = Mathf.Clamp01(_cardInfo.HackerPower / HackerPower);
+            float horrify = Mathf.Clamp01(_cardInfo.HorrifyPower / HorrifyPower);
+
+            chance = Mathf.Clamp01((fire + hacker + horrify) / 3f);
+        }
+
+        return chance;
+    }
 }

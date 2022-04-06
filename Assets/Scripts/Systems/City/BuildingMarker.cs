@@ -23,7 +23,7 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
         _defaultMaterial = _meshRenderer.material;
     }
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(IEPlayMarkerAnimation());
     }

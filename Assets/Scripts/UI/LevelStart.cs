@@ -9,6 +9,7 @@ using DG.Tweening;
 
 public class LevelStart : MonoBehaviour
 {
+    [SerializeField] private GameObject _city;
 
     [Header("Cameras")]
     [SerializeField] private CinemachineVirtualCamera _playerCamera;
@@ -76,6 +77,7 @@ public class LevelStart : MonoBehaviour
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
+        _city.gameObject.SetActive(false);
     }
 
     private IEnumerator ShowPlayer()
