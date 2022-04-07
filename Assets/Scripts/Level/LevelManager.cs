@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private Level[] _levels;
+    [SerializeField] private List<Level> _levels;
 
     public Level CurrentLevel { get; private set; }
 
@@ -22,5 +23,13 @@ public class LevelManager : MonoBehaviour
     {
         CurrentLevel = startLevel;
         LevelChanged?.Invoke(CurrentLevel);
+    }
+
+    public void NextLevel()
+    {
+        int index = _levels.IndexOf(CurrentLevel);
+        index++;
+
+        CurrentLevel = _levels[index];
     }
 }

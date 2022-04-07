@@ -29,13 +29,10 @@ public class LevelStart : MonoBehaviour
     [SerializeField] private Image _safeImage;
 
     [Inject]
-    private Player _player;
-
-    [Inject]
     private LevelManager _levelManager;
 
     [Inject]
-    private IInput _input;
+    private CameraController _cameraController;
 
     private void OnEnable()
     {
@@ -69,7 +66,7 @@ public class LevelStart : MonoBehaviour
     public void StartLevel()
     {
         StartCoroutine(DisableStartPanel());
-        StartCoroutine(ShowPlayer());
+        _cameraController.ShowPlayer();
     }
 
     private IEnumerator DisableStartPanel()
@@ -78,15 +75,5 @@ public class LevelStart : MonoBehaviour
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
         _city.gameObject.SetActive(false);
-    }
-
-    private IEnumerator ShowPlayer()
-    {
-        DOTween.To(() => _cityCamera.m_Lens.FieldOfView, x => _cityCamera.m_Lens.FieldOfView = x, 20, 1.5f).SetEase(Ease.InBack);
-        yield return new WaitForSeconds(1.5f);
-
-        _playerCamera.Priority = 1;
-        _input.Enabled = true;
-        _player.Movement.enabled = true;
     }
 }

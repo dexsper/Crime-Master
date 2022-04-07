@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using Zenject;
@@ -22,5 +24,17 @@ public class CityMarkers : MonoBehaviour
             _currentMarker = 0;
 
         _buildings[_currentMarker].SetEnable(true);
+    }
+
+    public IEnumerator ShowAnimation(Action callback)
+    {
+        _buildings[_currentMarker].AnimationObject.SetActive(true);
+
+        yield return new WaitForSeconds(2.5f);
+
+        _buildings[_currentMarker].AnimationObject.SetActive(false);
+
+
+        callback?.Invoke();
     }
 }

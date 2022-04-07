@@ -1,15 +1,10 @@
-using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using Zenject;
 using DG.Tweening;
+
 public class FinalScreen : MonoBehaviour
 {
-    [SerializeField] private GameObject _city;
-
-    [Header("Cameras")]
-    [SerializeField] private CinemachineVirtualCamera _playerCamera;
-    [SerializeField] private CinemachineVirtualCamera _cityCamera;
 
     [Header("Panels")]
     [SerializeField] private GameObject _successPanel;
@@ -19,22 +14,17 @@ public class FinalScreen : MonoBehaviour
     private LevelManager _levelManager;
 
     [Inject]
-    private IInput _input;
-
-    [Inject]
     private Player _player;
 
     public void RestartLevel()
     {
         _levelManager.ChangeLevel(_levelManager.CurrentLevel);
         StartCoroutine(DisableFinishPanel());
-
-        ShowCity();
     }
     public void NextLevel()
     {
+        _levelManager.NextLevel();
         StartCoroutine(DisableFinishPanel());
-        ShowCity();
     }
 
     public void ShowLose()
@@ -61,12 +51,5 @@ public class FinalScreen : MonoBehaviour
         _successPanel.gameObject.SetActive(false);
         _losePanel.gameObject.SetActive(false);
 
-    }
-
-    private void ShowCity()
-    {
-        _city.gameObject.SetActive(true);
-        _playerCamera.Priority = -1;
-        DOTween.To(() => _cityCamera.m_Lens.FieldOfView, x => _cityCamera.m_Lens.FieldOfView = x, 70, 1.5f).SetEase(Ease.InOutBack);
     }
 }

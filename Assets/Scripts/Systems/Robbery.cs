@@ -5,6 +5,9 @@ using Zenject;
 
 public class Robbery : MonoBehaviour
 {
+    [SerializeField] private CityMarkers _cityMarkers;
+
+    [Header("Interface")]
     [SerializeField] private Transform _placesParent;
 
     [Header("Visual Settings")]
@@ -17,7 +20,6 @@ public class Robbery : MonoBehaviour
 
     public float Chance { get; private set; }
 
-    private List<CardPlace> _places = new List<CardPlace>();
 
     [Inject]
     private LevelManager _levelManager;
@@ -31,11 +33,18 @@ public class Robbery : MonoBehaviour
     [Inject]
     private DiContainer _container;
 
+    [Inject]
+    private CameraController _cameraController;
+
+    private List<CardPlace> _places = new List<CardPlace>();
     private bool isStart = false;
+    private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
-        if(_startButton != null)
+        _canvasGroup = GetComponent<CanvasGroup>();
+
+        if (_startButton != null)
         {
             _startButton.onClick.AddListener(StartRobbery);
         }
@@ -44,6 +53,7 @@ public class Robbery : MonoBehaviour
     {
         SetupPlaces();
         SetupCards();
+        _canvasGroup.alpha = 1.0f;
     }
     private void OnDisable()
     {
@@ -92,16 +102,24 @@ public class Robbery : MonoBehaviour
 
         float randomChange = Random.Range(0, 1f);
 
-        if(Chance >= randomChange)
+        bool win = false;
+
+        if (Chance >= randomChange)
+            win = true;
+
+        _cameraController.ShowCity();
+
+        StartCoroutine(_cityMarkers.ShowAnimation(() =>
         {
-            _finalScreen.ShowSuccess();
+            if(win)
+                _finalScreen.ShowSuccess();
+            else 
+                _finalScreen.ShowLose();
+
             gameObject.SetActive(false);
-        }
-        else
-        {
-            _finalScreen.ShowLose();
-            gameObject.SetActive(false);
-        }
+        }));
+
+        _canvasGroup.alpha = 0f;
     }
     private void SetupCards()
     {
@@ -120,7 +138,7 @@ public class Robbery : MonoBehaviour
         var places = placeField.GetComponentsInChildren<CardPlace>();
 
         for (int i = 0; i < places.Length; i++)
-        {      
+        {
             var place = places[i];
 
             place.ResetInfo();

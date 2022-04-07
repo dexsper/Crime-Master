@@ -8,18 +8,21 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private GameObject _marker;
     [SerializeField] private Material _emissionMaterial;
+    [SerializeField] private GameObject _animationObject;
 
     private Material _defaultMaterial;
     private bool _enabled = false;
     private MeshRenderer _meshRenderer;
-
     [Inject]
     private LevelStart _levelStart;
+
+    public GameObject AnimationObject => _animationObject;
 
     private void Awake()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
         _marker.SetActive(false);
+        _animationObject.SetActive(false);
         _defaultMaterial = _meshRenderer.material;
     }
 
