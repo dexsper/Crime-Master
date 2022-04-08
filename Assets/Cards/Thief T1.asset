@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b81f4e6a8e83a4842953d1a4a4874609, type: 3}
-  m_Name: Bandit T2
+  m_Name: Thief T1
   m_EditorClassIdentifier: 
-  _cost: 50
-  _tier: 1
-  _firePower: 3
+  _cost: 30
+  _tier: 0
+  _firePower: 2
   _hackerPower: 1
-  _horrifyPower: 3
-  _iconSprite: {fileID: 21300000, guid: 14cc47dc25e8cf74ca8034aed3809aeb, type: 3}
+  _horrifyPower: 5
+  _iconSprite: {fileID: 21300000, guid: 0116364f9567a804ea1ce1a468cfeebb, type: 3}

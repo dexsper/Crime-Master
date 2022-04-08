@@ -129,8 +129,8 @@ Material:
     - _RampScale: 1
     - _RampSmooth: 0.1
     - _RampSmoothOtherLights: 0.5
-    - _RampSmoothing: 0
-    - _RampThreshold: 0.263
+    - _RampSmoothing: 0.801
+    - _RampThreshold: 0.01
     - _RampThresholdOtherLights: 0.5
     - _RampType: 0
     - _ReceiveShadows: 1
@@ -138,8 +138,8 @@ Material:
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
-    - _RimMax: 0.685
-    - _RimMin: 0
+    - _RimMax: 0.716
+    - _RimMin: 0.199
     - _Shadow_HSV_H: 0
     - _Shadow_HSV_S: 0
     - _Shadow_HSV_V: 0
@@ -181,7 +181,7 @@ Material:
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 1, g: 0, b: 0.020421028, a: 0.5}
+    - _RimColor: {r: 0, g: 1, b: 0.22358608, a: 0.5}
     - _SColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
