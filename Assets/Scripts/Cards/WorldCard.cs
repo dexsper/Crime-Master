@@ -4,10 +4,12 @@ using UnityEngine;
 public class WorldCard : BaseInteractable
 {
     private UI_Card _uiCard;
+    private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
         _uiCard = GetComponent<UI_Card>();
+        _canvasGroup = GetComponent<CanvasGroup>();
     }
     public void Setup(CardInfo info)
     {
@@ -28,5 +30,22 @@ public class WorldCard : BaseInteractable
         }
 
         Destroy(gameObject);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (_uiCard.Info != null)
+        {
+            if (_player.Economics.EnoughMoney(_uiCard.Info.Cost))
+            {
+                _canvasGroup.alpha = 1f;
+            }
+            else
+            {
+                _canvasGroup.alpha = 0.7f;
+            }
+        }
     }
 }

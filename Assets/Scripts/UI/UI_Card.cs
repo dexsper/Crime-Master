@@ -20,15 +20,7 @@ public class UI_Card : MonoBehaviour
 
     [Inject]
     private Player _player;
-    private bool _initalized = false;
-    private CanvasGroup _canvasGroup;
-
     public CardInfo Info => _cardInfo;
-
-    private void Awake()
-    { 
-        _canvasGroup = GetComponent<CanvasGroup>();
-    }
 
     public void Setup(CardInfo info)
     {
@@ -51,21 +43,5 @@ public class UI_Card : MonoBehaviour
         if (_backgroundBorder != null)
             _backgroundBorder.color = CardInfo.TierColors[info.Tier];
 
-        _initalized = true;
-    }
-
-    private void Update()
-    {
-        if(_initalized)
-        {
-            if(_player.Economics.EnoughMoney(Info.Cost))
-            {
-                _canvasGroup.alpha = 1f;
-            }
-            else
-            {
-                _canvasGroup.alpha = 0.7f;
-            }
-        }
     }
 }
