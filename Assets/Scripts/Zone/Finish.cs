@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using Zenject;
 
 public class Finish : MonoBehaviour
 {
+    private bool _entered = false;
+
     [Inject]
     private Player _player;
 
@@ -18,11 +21,24 @@ public class Finish : MonoBehaviour
     [Inject]
     private CameraController _cameraController;
 
+    [Inject]
+    private LevelManager _levelManager;
 
+    private void Awake()
+    {
+        _levelManager.LevelChanged.AddListener(LevelChanged);
+    }
+
+    private void LevelChanged(Level arg0)
+    {
+        _entered = false;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == _player.gameObject)
+        if (other.gameObject == _player.gameObject && !_entered)
         {
+            _entered = true;
+
             _player.Movement.enabled = false;
             _input.Enabled = false;
             _player.gameObject.SetActive(false);
@@ -36,6 +52,8 @@ public class Finish : MonoBehaviour
                 _cameraController.ShowCity();
                 _finalScreen.ShowLose();
             }
+
+           
         }
     }
 }

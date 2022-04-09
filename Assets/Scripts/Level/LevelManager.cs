@@ -30,6 +30,6 @@ public class LevelManager : MonoBehaviour
         int index = _levels.IndexOf(CurrentLevel);
         index++;
 
-        CurrentLevel = _levels[index];
+        ChangeLevel(_levels[index]);
     }
 }

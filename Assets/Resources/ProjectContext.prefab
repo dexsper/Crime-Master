@@ -119,6 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levels:
   - {fileID: 11400000, guid: 0465c6caff9e7ac42b57842c2f8cb2d1, type: 2}
+  - {fileID: 11400000, guid: 70a7188f60fe1ac44a347ecbf679e7fc, type: 2}
+  - {fileID: 11400000, guid: 28eb579dca4068340916086b83be90d6, type: 2}
   LevelChanged:
     m_PersistentCalls:
       m_Calls: []
