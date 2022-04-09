@@ -41,7 +41,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
         {
             _cardInfo = card.Info;
 
-            _playerInventory.Cards.Remove(_cardInfo);
+            _playerInventory.RemoveCard(_cardInfo);
 
             _borderImage.color = CardInfo.TierColors[_cardInfo.Tier];
 

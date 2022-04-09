@@ -1923,6 +1923,7 @@ GameObject:
   - component: {fileID: 5463113578655022693}
   - component: {fileID: 8536646139617072438}
   - component: {fileID: 7099733832718374752}
+  - component: {fileID: 3822287017536475714}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -2011,3 +2012,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &3822287017536475714
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463113578655022688}
+  m_Enabled: 1
+  m_Alpha: 0.7
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
