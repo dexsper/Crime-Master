@@ -24,6 +24,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
     [SerializeField] private Image _borderImage;
     [SerializeField] private Image _iconImage;
 
+    [SerializeField] private Color _borderColor;
     [Inject]
     private PlayerInventory _playerInventory;
     private CardInfo _cardInfo;
@@ -62,7 +63,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
     {
         _cardInfo = null;
 
-        _borderImage.color = Color.white;
+        _borderImage.color = _borderColor;
         _iconImage.sprite = null;
     }
 

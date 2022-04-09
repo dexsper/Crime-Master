@@ -141,6 +141,7 @@ MonoBehaviour:
   _horrifyPower: 4
   _borderImage: {fileID: 9222514540149590379}
   _iconImage: {fileID: 9222514539431920612}
+  _borderColor: {r: 0.29411766, g: 1, b: 0.2509804, a: 1}
   OnChanceChanged:
     m_PersistentCalls:
       m_Calls: []
