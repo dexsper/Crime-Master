@@ -18,6 +18,7 @@ public class CardInfo : ScriptableObject, IStats
 {
 
     [Header("Main")]
+    [SerializeField] private string _name;
     [SerializeField] private int _cost;
     [SerializeField] private CardTier _tier;
 
@@ -28,6 +29,7 @@ public class CardInfo : ScriptableObject, IStats
     [Header("UI")]
     [SerializeField] private Sprite _iconSprite;
 
+    public string Name => _name;
     public int Cost => _cost;
     public int Power => _power;
     public Sprite IconSprite => _iconSprite;

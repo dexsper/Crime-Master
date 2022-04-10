@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81f4e6a8e83a4842953d1a4a4874609, type: 3}
   m_Name: Theif T2
   m_EditorClassIdentifier: 
+  _name: Test name
   _cost: 55
   _tier: 1
   _power: 1

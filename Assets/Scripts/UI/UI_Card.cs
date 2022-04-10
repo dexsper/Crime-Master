@@ -8,6 +8,7 @@ public class UI_Card : MonoBehaviour
     private CardInfo _cardInfo;
 
     [Header("Text")]
+    [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _powerText;
     [SerializeField] private TextMeshProUGUI _costText;
 
@@ -28,6 +29,8 @@ public class UI_Card : MonoBehaviour
             _powerText.text = $"{info.Power}";
         if (_costText != null)
             _costText.text = $"{info.Cost} $";
+        if(_nameText != null)
+            _nameText.text = $"{info.Name}";
 
         if (_iconImage != null)
             _iconImage.sprite = info.IconSprite;

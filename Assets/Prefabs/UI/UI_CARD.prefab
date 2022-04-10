@@ -527,7 +527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Criminal '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2abd898c3e7712246995f5892f83b5cc, type: 2}
   m_sharedMaterial: {fileID: 1222727163748041335, guid: 2abd898c3e7712246995f5892f83b5cc, type: 2}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 6852172336826166433}
   - component: {fileID: 4888454216932384294}
   m_Layer: 0
-  m_Name: UI_Card
+  m_Name: UI_CARD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,6 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff513ed76df5b9c4dadd28eb6bdec374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameText: {fileID: 3385973375926955199}
   _powerText: {fileID: 8856642752791932638}
   _costText: {fileID: 467756898222407922}
   _iconImage: {fileID: 8856642752108216099}
