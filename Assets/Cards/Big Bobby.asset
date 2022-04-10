@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Big Bobby
   m_EditorClassIdentifier: 
   _name: Big Bobby
-  _cost: 100
+  _cost: 45
   _tier: 3
   _power: 9
   _iconSprite: {fileID: 21300000, guid: 7113e21c9289fcd4dbf9efffc1417f36, type: 3}

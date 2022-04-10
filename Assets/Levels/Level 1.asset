@@ -23,6 +23,6 @@ MonoBehaviour:
     CardTwo: {fileID: 11400000, guid: 2e739811e7fe1ae4bad0659466248888, type: 2}
   - CardOne: {fileID: 11400000, guid: 0e974d0979b42c5428962319299fc1e0, type: 2}
     CardTwo: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
-  - CardOne: {fileID: 11400000, guid: c9af09f56d6bc0c4b9e66bb67bd49a73, type: 2}
-    CardTwo: {fileID: 11400000, guid: 352ea37116c0ec747b876eef5c4645de, type: 2}
+  - CardOne: {fileID: 11400000, guid: 352ea37116c0ec747b876eef5c4645de, type: 2}
+    CardTwo: {fileID: 11400000, guid: c9af09f56d6bc0c4b9e66bb67bd49a73, type: 2}
   _moneySpace: 10

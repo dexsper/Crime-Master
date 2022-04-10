@@ -10,6 +10,8 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
     private CanvasGroup _canvasGroup;
     private Tween _lastTween;
 
+    private Vector3 defaultScale;
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -25,6 +27,8 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
 
         _canvasGroup.alpha = .7f;
         _canvasGroup.blocksRaycasts = false;
+
+        defaultScale = transform.localScale;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -45,7 +49,7 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         _lastTween = transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(0.3f);
         transform.SetParent(_defaultParent);
-        _lastTween = transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+        _lastTween = transform.DOScale(defaultScale, 0.3f).SetEase(Ease.OutBack);
     }
 
     private void OnDestroy()
