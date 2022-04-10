@@ -1274,7 +1274,7 @@ GameObject:
   - component: {fileID: 2998380323703514386}
   - component: {fileID: 9083844561599946800}
   m_Layer: 0
-  m_Name: Card 1 stat
+  m_Name: Card old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
