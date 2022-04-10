@@ -1,16 +1,12 @@
-using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using Zenject;
 
 public class UI_LevelCards : MonoBehaviour
 {
     [Header("Text")]
-    [SerializeField] private TextMeshProUGUI _fireText;
-    [SerializeField] private TextMeshProUGUI _hackerText;
-    [SerializeField] private TextMeshProUGUI _horrifyText;
+    [SerializeField] private TextMeshProUGUI _powerText;
 
     [Inject]
     private LevelManager _levelManager;
@@ -28,17 +24,11 @@ public class UI_LevelCards : MonoBehaviour
     private void UpdateUI()
     {
         var cards = _player.Inventory.Cards;
-        int fire = cards.Sum(x => x.FirePower);
-        int hacker = cards.Sum(x => x.HackerPower);
-        int horrify = cards.Sum(x => x.HorrifyPower);
+        int power = cards.Sum(x => x.Power);
 
         var places = _levelManager.CurrentLevel.Places;
-        int requiredFire = places.Sum(x => x.FirePower);
-        int requiredHacker = places.Sum(x => x.HackerPower);
-        int requiredHorrify = places.Sum(x => x.HorrifyPower);
+        int requiredPower = places.Sum(x => x.RequiredPower);
 
-        _fireText.text = $"{fire} / {requiredFire}";
-        _hackerText.text = $"{hacker} / {requiredHacker}";
-        _horrifyText.text = $"{horrify} / {requiredHorrify}";
+        _powerText.text = $"{power} / {requiredPower}";
     }
 }

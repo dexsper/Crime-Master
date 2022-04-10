@@ -53,7 +53,10 @@ public class Robbery : MonoBehaviour
     {
         SetupPlaces();
         SetupCards();
+        UpdateChance();
+
         _canvasGroup.alpha = 1.0f;
+
     }
     private void OnDisable()
     {
@@ -81,19 +84,8 @@ public class Robbery : MonoBehaviour
     }
     private void Update()
     {
-        if (isStart == false)
-        {
-            UpdateChance();
-
-            if (_progressBar != null)
-            {
-                _progressBar.SetProgress(Chance);
-            }
-
-            UpdateStartButton();
-        }
+        UpdateStartButton();
     }
-
 
     private void StartRobbery()
     {
@@ -111,9 +103,9 @@ public class Robbery : MonoBehaviour
 
         StartCoroutine(_cityMarkers.ShowAnimation(() =>
         {
-            if(win)
+            if (win)
                 _finalScreen.ShowSuccess();
-            else 
+            else
                 _finalScreen.ShowLose();
 
             gameObject.SetActive(false);
@@ -180,6 +172,11 @@ public class Robbery : MonoBehaviour
         }
 
         Chance = chance;
+
+        if(_progressBar != null)
+        {
+            _progressBar.SetProgress(Chance);
+        }
     }
 
 }

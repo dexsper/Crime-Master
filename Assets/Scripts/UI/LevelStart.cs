@@ -21,9 +21,7 @@ public class LevelStart : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI _levelNameText;
-    [SerializeField] private TextMeshProUGUI _fireText;
-    [SerializeField] private TextMeshProUGUI _hackerText;
-    [SerializeField] private TextMeshProUGUI _horrifyText;
+    [SerializeField] private TextMeshProUGUI _powerText;
 
     [Header("Images")]
     [SerializeField] private Image _safeImage;
@@ -46,18 +44,12 @@ public class LevelStart : MonoBehaviour
 
         var level = _levelManager.CurrentLevel;
 
-        int firePower = level.Places.Sum(x => x.FirePower);
-        int hackerPower = level.Places.Sum(x => x.HackerPower);
-        int horrifyPower = level.Places.Sum(x => x.HorrifyPower);
+        int firePower = level.Places.Sum(x => x.RequiredPower);
 
         if (_levelNameText != null)
             _levelNameText.text = level.LevelName;
-        if (_fireText != null)
-            _fireText.text = $"{firePower}";
-        if (_hackerText != null)
-            _hackerText.text = $"{hackerPower}";
-        if (_horrifyText != null)
-            _horrifyText.text = $"{horrifyPower}";
+        if (_powerText != null)
+            _powerText.text = $"{firePower}";
 
         if (_safeImage != null)
             _safeImage.sprite = level.SafeSprite;

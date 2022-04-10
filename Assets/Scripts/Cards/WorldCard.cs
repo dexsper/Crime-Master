@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(UI_Card))]
 public class WorldCard : BaseInteractable
 {
     private UI_Card _uiCard;
@@ -8,7 +7,7 @@ public class WorldCard : BaseInteractable
 
     private void Awake()
     {
-        _uiCard = GetComponent<UI_Card>();
+        _uiCard = GetComponentInChildren<UI_Card>();
         _canvasGroup = GetComponent<CanvasGroup>();
     }
     public void Setup(CardInfo info)
