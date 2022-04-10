@@ -19,10 +19,10 @@ MonoBehaviour:
   _cards:
   - CardOne: {fileID: 11400000, guid: 2e739811e7fe1ae4bad0659466248888, type: 2}
     CardTwo: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
-  - CardOne: {fileID: 11400000, guid: fc44c861e9bc0144e9fdcfa95ceffb6e, type: 2}
+  - CardOne: {fileID: 11400000, guid: 1130b505771b8fa49aecce9f77934071, type: 2}
     CardTwo: {fileID: 11400000, guid: 645aac2914b0bd045bf0c9b09f77b4a6, type: 2}
   - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
     CardTwo: {fileID: 11400000, guid: 352ea37116c0ec747b876eef5c4645de, type: 2}
   - CardOne: {fileID: 11400000, guid: 382df63d1e82a724d9204ef3c3cade29, type: 2}
-    CardTwo: {fileID: 11400000, guid: fc44c861e9bc0144e9fdcfa95ceffb6e, type: 2}
+    CardTwo: {fileID: 11400000, guid: 8f55cf2d86ba39f4487bb4d45b9a443a, type: 2}
   _moneySpace: 10

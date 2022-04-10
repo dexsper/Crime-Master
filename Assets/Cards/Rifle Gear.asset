@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81f4e6a8e83a4842953d1a4a4874609, type: 3}
   m_Name: Rifle Gear
   m_EditorClassIdentifier: 
-  _name: Test name
-  _cost: 70
+  _name: M4 Rifle
+  _cost: 80
   _tier: 4
-  _power: 1
+  _power: 7
   _iconSprite: {fileID: 21300000, guid: 374e76154b0517643aaacd0fa1f546af, type: 3}
