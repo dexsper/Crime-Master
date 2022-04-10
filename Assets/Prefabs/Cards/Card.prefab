@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Card
       objectReference: {fileID: 0}
+    - target: {fileID: 4888454216932384294, guid: 21de8a48ec114cd488ff0b4021f01e4e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6890977606388089230, guid: 21de8a48ec114cd488ff0b4021f01e4e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
