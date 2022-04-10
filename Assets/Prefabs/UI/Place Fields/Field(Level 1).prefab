@@ -213,6 +213,10 @@ PrefabInstance:
       propertyPath: _horrifyPower
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredPower
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676102, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: m_Name
       value: Place (2)
@@ -327,6 +331,10 @@ PrefabInstance:
       propertyPath: _horrifyPower
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredPower
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676102, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: m_Name
       value: Place (1)
@@ -436,6 +444,10 @@ PrefabInstance:
     - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: _horrifyPower
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredPower
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676102, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: m_Name

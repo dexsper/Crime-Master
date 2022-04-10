@@ -1539,9 +1539,7 @@ MonoBehaviour:
   _bloorPanel: {fileID: 7389988909563069442}
   _contentPanel: {fileID: 7389988908428097853}
   _levelNameText: {fileID: 7389988908939204227}
-  _fireText: {fileID: 7389988909242758192}
-  _hackerText: {fileID: 7389988909103159202}
-  _horrifyText: {fileID: 7389988907870747738}
+  _powerText: {fileID: 0}
   _safeImage: {fileID: 7389988909527521344}
 --- !u!1 &7389988909242758198
 GameObject:

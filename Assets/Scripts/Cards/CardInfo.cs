@@ -23,19 +23,13 @@ public class CardInfo : ScriptableObject, IStats
 
     [Header("Abilities")]
     [Range(1, 30)]
-    [SerializeField] private int _firePower;
-    [Range(1, 30)]
-    [SerializeField] private int _hackerPower;
-    [Range(1, 30)]
-    [SerializeField] private int _horrifyPower;
+    [SerializeField] private int _power;
 
     [Header("UI")]
     [SerializeField] private Sprite _iconSprite;
 
     public int Cost => _cost;
-    public int FirePower => _firePower;
-    public int HackerPower => _hackerPower;
-    public int HorrifyPower => _horrifyPower;
+    public int Power => _power;
     public Sprite IconSprite => _iconSprite;
 
     public CardTier Tier => _tier;

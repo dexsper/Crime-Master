@@ -192,7 +192,7 @@ MonoBehaviour:
   _placesParent: {fileID: 5061671544116234375}
   _progressBar: {fileID: 4591929282100257676}
   _startButton: {fileID: 1975553765403476338}
-  _cardPrefab: {fileID: 8221603990197997054, guid: 21de8a48ec114cd488ff0b4021f01e4e, type: 3}
+  _cardPrefab: {fileID: 6243000874932285056, guid: 21de8a48ec114cd488ff0b4021f01e4e, type: 3}
   _cardsParent: {fileID: 3161558615665657261}
 --- !u!225 &2948786673262067561
 CanvasGroup:

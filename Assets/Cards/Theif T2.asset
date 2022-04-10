@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cost: 55
   _tier: 1
-  _firePower: 8
-  _hackerPower: 2
-  _horrifyPower: 4
+  _power: 1
   _iconSprite: {fileID: 21300000, guid: 0116364f9567a804ea1ce1a468cfeebb, type: 3}

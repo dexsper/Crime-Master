@@ -670,8 +670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b92d050ec5efb64cbd9ffa47342431c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCamera: {fileID: 0}
-  _cityCamera: {fileID: 0}
   _successPanel: {fileID: 6672977575337001667}
   _losePanel: {fileID: 8830176131332226207}
 --- !u!1 &6672977574090354968
