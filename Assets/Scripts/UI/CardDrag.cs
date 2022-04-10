@@ -18,6 +18,11 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    private void Start()
+    {
+        transform.localScale = Vector3.one;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         _defaultParent = transform.parent;
