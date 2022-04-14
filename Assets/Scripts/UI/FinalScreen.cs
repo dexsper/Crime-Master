@@ -14,6 +14,9 @@ public class FinalScreen : MonoBehaviour
     private LevelManager _levelManager;
 
     [Inject]
+    private CameraController _cameraController;
+
+    [Inject]
     private Player _player;
 
     public void RestartLevel()
@@ -47,6 +50,7 @@ public class FinalScreen : MonoBehaviour
     {
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
         yield return new WaitForSeconds(2f);
+        _cameraController.ShowCity();
         _player.gameObject.SetActive(true);
         _successPanel.gameObject.SetActive(false);
         _losePanel.gameObject.SetActive(false);

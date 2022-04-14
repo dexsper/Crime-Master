@@ -191,8 +191,19 @@ MonoBehaviour:
   _placesParent: {fileID: 5061671544116234375}
   _progressBar: {fileID: 4591929282100257676}
   _startButton: {fileID: 1975553765403476338}
+  _animationTime: 2
+  _animationObjects: []
   _cardPrefab: {fileID: 6243000874932285056, guid: 21de8a48ec114cd488ff0b4021f01e4e, type: 3}
   _cardsParent: {fileID: 3161558615665657261}
+  OnAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLose:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSuccess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3161558615026801622
 GameObject:
   m_ObjectHideFlags: 0

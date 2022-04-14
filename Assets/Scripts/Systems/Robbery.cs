@@ -44,9 +44,6 @@ public class Robbery : MonoBehaviour
     [Inject]
     private DiContainer _container;
 
-    [Inject]
-    private CameraController _cameraController;
-
     private List<CardPlace> _places = new List<CardPlace>();
     private bool isStart = false;
 
@@ -120,15 +117,20 @@ public class Robbery : MonoBehaviour
 
         yield return new WaitForSeconds(_animationTime);
 
-        _cameraController.ShowCity();
-
         if (win)
         {
+            OnSuccess?.Invoke();
             _finalScreen.ShowSuccess();
         }
         else
         {
+            OnLose?.Invoke();
             _finalScreen.ShowLose();
+        }
+
+        for (int i = 0; i < _animationObjects.Count; i++)
+        {
+            _animationObjects[i].SetActive(false);
         }
 
         gameObject.SetActive(false);
