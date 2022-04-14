@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private TimedText _textNotify;
     [SerializeField] private Transform _spawnPoint;
     private PlayerMovement _playerMovement;
 
     public PlayerEconomics Economics => _playerEconomics;
     public PlayerMovement Movement => _playerMovement;
     public PlayerInventory Inventory => _playerInventory;
+    public TimedText TextNotify => _textNotify;
 
     [Inject]
     private LevelManager _levelManager;
@@ -43,5 +45,4 @@ public class Player : MonoBehaviour
     {
         moodParticles[1].Play();
     }
-
 }

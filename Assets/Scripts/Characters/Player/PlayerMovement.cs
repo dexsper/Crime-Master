@@ -13,12 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [Range(1, 10)]
     [SerializeField] private float _sideSpeed = 1.2f;
 
-    [Header("Card Force")]
-    [Range(100, 1000)]
-    [SerializeField] private float _backForce = 500f;
-    [Range(0, 2)]
-    [SerializeField] private float _forceTime = .7f;
-
     private Rigidbody _rigidbody;
 
     [Inject]
@@ -47,19 +41,5 @@ public class PlayerMovement : MonoBehaviour
         {
             IsMove = false;
         }
-    }
-
-    public void AddBackForce()
-    {
-        StartCoroutine(ForceBack());
-    }
-
-    private IEnumerator ForceBack()
-    {
-        IsForced = true;
-        _rigidbody.AddForce(-transform.forward * _backForce * Time.deltaTime, ForceMode.Impulse);
-        yield return new WaitForSeconds(_forceTime);
-
-        IsForced = false;
     }
 }
