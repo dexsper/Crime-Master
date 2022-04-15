@@ -42,6 +42,9 @@ public class Robbery : MonoBehaviour
     [Inject]
     private DiContainer _container;
 
+    [Inject]
+    private CameraController _cameraController;
+
     private List<CardPlace> _places = new List<CardPlace>();
     private bool isStart = false;
 
@@ -114,6 +117,8 @@ public class Robbery : MonoBehaviour
         }
 
         OnAnimation?.Invoke();
+
+        _cameraController.ShowBank();
 
         StartCoroutine(_progressBar.AnimateCursor(Chance, () =>
         {

@@ -16,7 +16,7 @@ public class PlayerEconomics : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>();
-        _levelManager.LevelChanged.AddListener(ShowEarned);
+        _levelManager.OnNextLevel.AddListener(ShowEarned);
     }
 
     private void ShowEarned(Level level)
