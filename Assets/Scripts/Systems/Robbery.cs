@@ -17,8 +17,6 @@ public class Robbery : MonoBehaviour
     [SerializeField] private Button _startButton;
 
     [Header("Animation")]
-    [Range(1, 5)]
-    [SerializeField] private float _animationTime = 2f;
     [SerializeField] private List<GameObject> _animationObjects;
 
     [Header("Cards")]
@@ -106,7 +104,9 @@ public class Robbery : MonoBehaviour
             win = true;
 
         SetChildsEnable(false);
-        _progressBar.enabled = true;
+
+        _progressBar.gameObject.SetActive(true);
+        _progressBar.SetProgress(Chance);
 
         for (int i = 0; i < _animationObjects.Count; i++)
         {
@@ -115,26 +115,28 @@ public class Robbery : MonoBehaviour
 
         OnAnimation?.Invoke();
 
-        yield return new WaitForSeconds(_animationTime);
-
-        if (win)
+        StartCoroutine(_progressBar.AnimateCursor(Chance, () =>
         {
-            OnSuccess?.Invoke();
-            _finalScreen.ShowSuccess();
-        }
-        else
-        {
-            OnLose?.Invoke();
-            _finalScreen.ShowLose();
-        }
+            if (win)
+            {
+                OnSuccess?.Invoke();
+                _finalScreen.ShowSuccess();
+            }
+            else
+            {
+                OnLose?.Invoke();
+                _finalScreen.ShowLose();
+            }
 
-        for (int i = 0; i < _animationObjects.Count; i++)
-        {
-            _animationObjects[i].SetActive(false);
-        }
+            for (int i = 0; i < _animationObjects.Count; i++)
+            {
+                _animationObjects[i].SetActive(false);
+            }
 
-        gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }));
 
+        yield return null;
     }
 
     private void SetupCards()
@@ -207,8 +209,6 @@ public class Robbery : MonoBehaviour
             _progressBar.SetProgress(Chance);
         }
     }
-
-
     private void SetChildsEnable(bool enable)
     {
         for (int i = 0; i < transform.childCount; i++)
