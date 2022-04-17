@@ -3,7 +3,7 @@ using UnityEngine;
 using Zenject;
 using DG.Tweening;
 
-public class FinalScreen : MonoBehaviour
+public class FinalScreen : Panel
 {
 
     [Header("Panels")]
@@ -23,11 +23,15 @@ public class FinalScreen : MonoBehaviour
     {
         _levelManager.ChangeLevel(_levelManager.CurrentLevel);
         StartCoroutine(DisableFinishPanel());
+
+        OnHide?.Invoke();
     }
     public void NextLevel()
     {
         _levelManager.NextLevel();
         StartCoroutine(DisableFinishPanel());
+
+        OnHide?.Invoke();
     }
 
     public void ShowLose()
@@ -36,6 +40,8 @@ public class FinalScreen : MonoBehaviour
         _losePanel.transform.localScale = Vector3.zero;
         _losePanel.gameObject.SetActive(true);
         _losePanel.transform.DOScale(Vector3.one, 0.5f);
+
+        OnShow?.Invoke();
     }
 
     public void ShowSuccess()
@@ -44,6 +50,8 @@ public class FinalScreen : MonoBehaviour
         _successPanel.transform.localScale = Vector3.zero;
         _successPanel.gameObject.SetActive(true);
         _successPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+
+        OnShow?.Invoke();
     }
 
     private IEnumerator DisableFinishPanel()

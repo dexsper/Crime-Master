@@ -2,6 +2,8 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.Events;
+
 public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private Camera _camera;
@@ -11,6 +13,8 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
     private Tween _lastTween;
 
     private Vector3 defaultScale;
+
+    public UnityEvent OnStartDrag;
 
     private void Awake()
     {
@@ -25,6 +29,8 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        OnStartDrag?.Invoke();
+
         _defaultParent = transform.parent;
         _offset = (Vector2)transform.position - eventData.position;
 

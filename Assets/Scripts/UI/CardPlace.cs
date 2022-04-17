@@ -19,13 +19,14 @@ public class CardPlace : MonoBehaviour, IDropHandler
     [SerializeField] private Image _iconImage;
 
     [SerializeField] private Color _borderColor;
+
     [Inject]
-    private PlayerInventory _playerInventory;
+    private Player _player;
     private CardInfo _cardInfo;
 
     public float Chance { get; private set; }
     public bool HasCard => _cardInfo != null;
-    public UnityEvent OnChanceChanged;
+    public UnityEvent OnPlaced;
 
 
     public void OnDrop(PointerEventData eventData)
@@ -36,7 +37,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
         {
             _cardInfo = card.Info;
 
-            _playerInventory.RemoveCard(_cardInfo);
+            _player.Inventory.RemoveCard(_cardInfo);
 
             _borderImage.color = CardInfo.TierColors[_cardInfo.Tier];
 
@@ -49,7 +50,7 @@ public class CardPlace : MonoBehaviour, IDropHandler
             Destroy(card.gameObject, 0.3f);
 
             Chance = GetChance();
-            OnChanceChanged?.Invoke();
+            OnPlaced?.Invoke();
         }
 
     }

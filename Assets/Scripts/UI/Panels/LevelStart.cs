@@ -6,8 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using DG.Tweening;
+using UnityEngine.Events;
 
-public class LevelStart : MonoBehaviour
+public class LevelStart : Panel
 {
     [SerializeField] private GameObject _city;
 
@@ -32,9 +33,12 @@ public class LevelStart : MonoBehaviour
     [Inject]
     private CameraController _cameraController;
 
+
     private void OnEnable()
     {
         SetupInterface();
+
+        OnShow?.Invoke();
     }
 
     private void SetupInterface()

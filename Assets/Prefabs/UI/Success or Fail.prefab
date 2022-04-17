@@ -420,7 +420,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1991243775}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FinalScreen, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
@@ -629,7 +629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6672977573639836754}
-  - component: {fileID: 1991243775}
+  - component: {fileID: 5658151703276583978}
   m_Layer: 0
   m_Name: Success or Fail
   m_TagString: Untagged
@@ -658,7 +658,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1991243775
+--- !u!114 &5658151703276583978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -667,9 +667,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 6672977573639836757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b92d050ec5efb64cbd9ffa47342431c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a4272a58bcb3c24d8d9eb45ae0d945d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnShow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 2a83181d28e6bd94584be6bc7d445ec4, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHide:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 25f1040ee34185645bd4395278c25110, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _successPanel: {fileID: 6672977575337001667}
   _losePanel: {fileID: 8830176131332226207}
 --- !u!1 &6672977574090354968
@@ -792,7 +822,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1991243775}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FinalScreen, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
@@ -925,7 +955,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1991243775}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FinalScreen, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
