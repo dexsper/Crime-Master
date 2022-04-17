@@ -327,9 +327,9 @@ MonoBehaviour:
   _progressBar: {fileID: 4591929282100257676}
   _startButton: {fileID: 1975553765403476338}
   _animationObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8426253325720144184, guid: 2f338cb475394f846b352d2f54f8365f, type: 3}
+  - {fileID: 935673206033048003, guid: 7c2e568cedf84e94db4d8ca861788ed0, type: 3}
+  - {fileID: 4463329737941215501, guid: 33a720fafbb9f9f4ca71f1f6e2981a46, type: 3}
   _cardPrefab: {fileID: 6243000874932285056, guid: 21de8a48ec114cd488ff0b4021f01e4e, type: 3}
   _cardsParent: {fileID: 3161558615665657261}
   OnAnimation:
