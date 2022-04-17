@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public Level CurrentLevel { get; private set; }
 
+    public UnityEvent<Level> OnNextLevel;
     public UnityEvent<Level> LevelChanged;
 
     private void Start()
@@ -31,5 +32,6 @@ public class LevelManager : MonoBehaviour
         index++;
 
         ChangeLevel(_levels[index]);
+        OnNextLevel?.Invoke(CurrentLevel);
     }
 }

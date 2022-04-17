@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     [Header("Cameras")]
     [SerializeField] private CinemachineVirtualCamera _playerCamera;
     [SerializeField] private CinemachineVirtualCamera _cityCamera;
+    [SerializeField] private CinemachineVirtualCamera _bankCamera;
 
     [Header("Events")]
     public UnityEvent OnCityShow;
@@ -26,6 +27,8 @@ public class CameraController : MonoBehaviour
     public void ShowCity()
     {
         _city.gameObject.SetActive(true);
+
+        _bankCamera.Priority = -1;
         _playerCamera.Priority = -1;
 
         OnCityShow?.Invoke();
@@ -35,10 +38,17 @@ public class CameraController : MonoBehaviour
     {
         DOTween.To(() => _cityCamera.m_Lens.FieldOfView, x => _cityCamera.m_Lens.FieldOfView = x, 20, 1.5f).SetEase(Ease.InBack).OnComplete(() =>
         {
+            _bankCamera.Priority = -1;
             _playerCamera.Priority = 1;
             _input.Enabled = true;
             _player.Movement.enabled = true;
             OnPlayerShow?.Invoke();
         });
+    }
+
+    public void ShowBank()
+    {
+        _bankCamera.Priority = 1;
+        _playerCamera.Priority = -1;
     }
 }

@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Zenject;
 
@@ -14,12 +16,19 @@ public class Robbery : MonoBehaviour
     [SerializeField] private ProgressBar _progressBar;
     [SerializeField] private Button _startButton;
 
+    [Header("Animation")]
+    [SerializeField] private List<GameObject> _animationObjects;
+
     [Header("Cards")]
     [SerializeField] private UI_Card _cardPrefab;
     [SerializeField] private Transform _cardsParent;
 
-    public float Chance { get; private set; }
+    [Header("Events")]
+    public UnityEvent OnAnimation;
+    public UnityEvent OnLose;
+    public UnityEvent OnSuccess;
 
+    public float Chance { get; private set; }
 
     [Inject]
     private LevelManager _levelManager;
@@ -38,12 +47,9 @@ public class Robbery : MonoBehaviour
 
     private List<CardPlace> _places = new List<CardPlace>();
     private bool isStart = false;
-    private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-
         if (_startButton != null)
         {
             _startButton.onClick.AddListener(StartRobbery);
@@ -51,13 +57,14 @@ public class Robbery : MonoBehaviour
     }
     private void OnEnable()
     {
+        SetChildsEnable(true);
+
         SetupPlaces();
         SetupCards();
         UpdateChance();
 
-        _canvasGroup.alpha = 1.0f;
-
     }
+
     private void OnDisable()
     {
         isStart = false;
@@ -79,12 +86,7 @@ public class Robbery : MonoBehaviour
             Destroy(_cardsParent.GetChild(i).gameObject);
         }
 
-
         _startButton.interactable = true;
-    }
-    private void Update()
-    {
-        UpdateStartButton();
     }
 
     private void StartRobbery()
@@ -92,27 +94,58 @@ public class Robbery : MonoBehaviour
         isStart = true;
         _startButton.interactable = false;
 
-        float randomChange = Random.Range(0, 1f);
+        StartCoroutine(RobberyAnimation());
+    }
+
+    private IEnumerator RobberyAnimation()
+    {
+        float rndChance = Random.Range(0, 1f);
 
         bool win = false;
 
-        if (Chance >= randomChange)
+        if (Chance >= rndChance)
             win = true;
 
-        _cameraController.ShowCity();
+        SetChildsEnable(false);
 
-        StartCoroutine(_cityMarkers.ShowAnimation(() =>
+        _progressBar.gameObject.SetActive(true);
+        _progressBar.SetProgress(Chance);
+
+        for (int i = 0; i < _animationObjects.Count; i++)
         {
-            if (win)
-                _finalScreen.ShowSuccess();
-            else
-                _finalScreen.ShowLose();
+            _animationObjects[i].gameObject.SetActive(true);
+        }
 
-            gameObject.SetActive(false);
-        }));
+        OnAnimation?.Invoke();
 
-        _canvasGroup.alpha = 0f;
+        _cameraController.ShowBank();
+
+        StartCoroutine(_progressBar.AnimateCursor(Chance, () => FinishRobbery(win)));
+
+        yield return null;
     }
+
+    private void FinishRobbery(bool win)
+    {
+        if (win)
+        {
+            OnSuccess?.Invoke();
+            _finalScreen.ShowSuccess();
+        }
+        else
+        {
+            OnLose?.Invoke();
+            _finalScreen.ShowLose();
+        }
+
+        for (int i = 0; i < _animationObjects.Count; i++)
+        {
+            _animationObjects[i].gameObject.SetActive(false);
+        }
+
+        gameObject.SetActive(false);
+    }
+
     private void SetupCards()
     {
         for (int i = 0; i < _playerInventory.Cards.Count; i++)
@@ -137,9 +170,12 @@ public class Robbery : MonoBehaviour
             place.gameObject.SetActive(true);
 
             _places.Add(place);
+
             place.OnChanceChanged.AddListener(UpdateChance);
+            place.OnChanceChanged.AddListener(UpdateStartButton);
         }
     }
+
     private void UpdateStartButton()
     {
         if (_startButton == null) return;
@@ -154,6 +190,8 @@ public class Robbery : MonoBehaviour
                 break;
             }
         }
+
+        if (_startButton.interactable == enabled) return;
 
         _startButton.interactable = enabled;
     }
@@ -173,10 +211,16 @@ public class Robbery : MonoBehaviour
 
         Chance = chance;
 
-        if(_progressBar != null)
+        if (_progressBar != null)
         {
             _progressBar.SetProgress(Chance);
         }
     }
-
+    private void SetChildsEnable(bool enable)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(enable);
+        }
+    }
 }

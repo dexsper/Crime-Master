@@ -4,6 +4,7 @@ public class WorldCard : BaseInteractable
 {
     private UI_Card _uiCard;
     private CanvasGroup _canvasGroup;
+    private Color _notEnoughColor = Color.red;
 
     private void Awake()
     {
@@ -24,8 +25,7 @@ public class WorldCard : BaseInteractable
         }
         else
         {
-            _player.Movement.AddBackForce();
-            _player.PlayBadMoodParticles();
+            _player.TextNotify.Show("Not enough money", _notEnoughColor);
         }
 
         Destroy(gameObject);
