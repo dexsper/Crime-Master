@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Zenject;
 
-public class Robbery : MonoBehaviour
+public class Robbery : Panel
 {
     [SerializeField] private CityMarkers _cityMarkers;
 
@@ -34,7 +34,7 @@ public class Robbery : MonoBehaviour
     private LevelManager _levelManager;
 
     [Inject]
-    private PlayerInventory _playerInventory;
+    private Player _player;
 
     [Inject]
     private FinalScreen _finalScreen;
@@ -63,6 +63,7 @@ public class Robbery : MonoBehaviour
         SetupCards();
         UpdateChance();
 
+        OnShow?.Invoke();
     }
 
     private void OnDisable()
@@ -71,7 +72,7 @@ public class Robbery : MonoBehaviour
 
         for (int i = 0; i < _places.Count; i++)
         {
-            _places[i].OnChanceChanged.RemoveAllListeners();
+            _places[i].OnPlaced.RemoveAllListeners();
         }
 
         _places.Clear();
@@ -87,6 +88,8 @@ public class Robbery : MonoBehaviour
         }
 
         _startButton.interactable = true;
+
+        OnHide?.Invoke();
     }
 
     private void StartRobbery()
@@ -120,7 +123,7 @@ public class Robbery : MonoBehaviour
 
         _cameraController.ShowBank();
 
-        StartCoroutine(_progressBar.AnimateCursor(Chance, () => FinishRobbery(win)));
+        StartCoroutine(_progressBar.AnimateCursor(rndChance, () => FinishRobbery(win)));
 
         yield return null;
     }
@@ -148,10 +151,10 @@ public class Robbery : MonoBehaviour
 
     private void SetupCards()
     {
-        for (int i = 0; i < _playerInventory.Cards.Count; i++)
+        for (int i = 0; i < _player.Inventory.Cards.Count; i++)
         {
             var card = Instantiate(_cardPrefab);
-            card.Setup(_playerInventory.Cards[i]);
+            card.Setup(_player.Inventory.Cards[i]);
 
             card.transform.SetParent(_cardsParent);
         }
@@ -171,8 +174,8 @@ public class Robbery : MonoBehaviour
 
             _places.Add(place);
 
-            place.OnChanceChanged.AddListener(UpdateChance);
-            place.OnChanceChanged.AddListener(UpdateStartButton);
+            place.OnPlaced.AddListener(UpdateChance);
+            place.OnPlaced.AddListener(UpdateStartButton);
         }
     }
 

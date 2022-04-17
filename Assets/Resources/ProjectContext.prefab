@@ -10,9 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3503280488608769052}
   - component: {fileID: 2068880505127788527}
-  - component: {fileID: 7016904823696178924}
-  - component: {fileID: -6911907122219823541}
-  - component: {fileID: -3676586029620617617}
   - component: {fileID: -9087472908022714690}
   - component: {fileID: 1149519779340878676}
   m_Layer: 0
@@ -51,7 +48,6 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1149519779340878676}
-  - {fileID: -3676586029620617617}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -66,45 +62,6 @@ MonoBehaviour:
       _missingHandlerDefaultResponse: 2
       _requireStrictUnsubscribe: 0
       _defaultAsyncTickPriority: 1
---- !u!114 &7016904823696178924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7655224841413581838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f588107bc8f10e41bd090546710d688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-6911907122219823541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7655224841413581838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4803cbce0016764f96b4803ad04b2f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _money: 0
---- !u!114 &-3676586029620617617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7655224841413581838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2c0ed7ddbf6d384598dd17cb2b1bda2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerEconomics: {fileID: -6911907122219823541}
-  _playerInventory: {fileID: 7016904823696178924}
 --- !u!114 &-9087472908022714690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +78,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0465c6caff9e7ac42b57842c2f8cb2d1, type: 2}
   - {fileID: 11400000, guid: 70a7188f60fe1ac44a347ecbf679e7fc, type: 2}
   - {fileID: 11400000, guid: 28eb579dca4068340916086b83be90d6, type: 2}
+  OnNextLevel:
+    m_PersistentCalls:
+      m_Calls: []
   LevelChanged:
     m_PersistentCalls:
       m_Calls: []

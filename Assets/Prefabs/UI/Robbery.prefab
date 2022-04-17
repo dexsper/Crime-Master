@@ -322,14 +322,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a0f8fcc120118408033425921969f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnShow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 2a83181d28e6bd94584be6bc7d445ec4, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHide:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 25f1040ee34185645bd4395278c25110, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _cityMarkers: {fileID: 0}
   _placesParent: {fileID: 5061671544116234375}
   _progressBar: {fileID: 4591929282100257676}
   _startButton: {fileID: 1975553765403476338}
   _animationObjects:
-  - {fileID: 8426253325720144184, guid: 2f338cb475394f846b352d2f54f8365f, type: 3}
-  - {fileID: 935673206033048003, guid: 7c2e568cedf84e94db4d8ca861788ed0, type: 3}
-  - {fileID: 4463329737941215501, guid: 33a720fafbb9f9f4ca71f1f6e2981a46, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _cardPrefab: {fileID: 6243000874932285056, guid: 21de8a48ec114cd488ff0b4021f01e4e, type: 3}
   _cardsParent: {fileID: 3161558615665657261}
   OnAnimation:
@@ -1060,6 +1090,10 @@ PrefabInstance:
       propertyPath: _cursorArea
       value: 
       objectReference: {fileID: 15445335}
+    - target: {fileID: 8082685611192785939, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
+      propertyPath: _animationTime
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
 --- !u!1 &3194985274573758266 stripped

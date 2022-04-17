@@ -13,6 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [Range(1, 10)]
     [SerializeField] private float _sideSpeed = 1.2f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _walkClip;
+    [SerializeField] private AudioSource _source;
+    [Range(0, 1f)]
+    [SerializeField] private float _walkClipDelay;
+
     private Rigidbody _rigidbody;
 
     [Inject]
@@ -27,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
+    float time = 0;
+
     private void FixedUpdate()
     {
         if (IsForced == false)
@@ -34,6 +42,14 @@ public class PlayerMovement : MonoBehaviour
             Vector3 direction = new Vector3(_input.Horizontal * _sideSpeed, 0f, _forwardSpeed);
 
             _rigidbody.MovePosition(transform.position + direction * Time.fixedDeltaTime);
+
+            time += Time.fixedDeltaTime;
+
+            if(time > _walkClipDelay)
+            {
+                _source.PlayOneShot(_walkClip);
+                time = 0f;
+            }
 
             IsMove = true;
         }

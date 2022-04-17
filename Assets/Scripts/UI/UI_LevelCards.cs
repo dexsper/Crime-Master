@@ -14,7 +14,7 @@ public class UI_LevelCards : MonoBehaviour
     [Inject]
     private Player _player;
 
-    private void Awake()
+    private void Start()
     {
         _player.Inventory.OnCardAdded.AddListener((x) => UpdateUI());
         _player.Inventory.OnCardRemoved.AddListener((x) => UpdateUI());

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class Finish : MonoBehaviour
@@ -23,6 +24,8 @@ public class Finish : MonoBehaviour
 
     [Inject]
     private LevelManager _levelManager;
+
+    public UnityEvent OnEntered;
 
     private void Awake()
     {
