@@ -45,7 +45,7 @@ public class Finish : MonoBehaviour
             _player.Movement.enabled = false;
             _input.Enabled = false;
             _player.gameObject.SetActive(false);
-
+            OnEntered.Invoke();
             if (_player.Inventory.Cards.Count > 0)
             {
                 _robbery.gameObject.SetActive(true);
@@ -56,7 +56,7 @@ public class Finish : MonoBehaviour
                 _finalScreen.ShowLose();
             }
 
-           
+
         }
     }
 }

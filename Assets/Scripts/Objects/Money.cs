@@ -14,17 +14,20 @@ public class Money : BaseInteractable
     [Range(0, 2)]
     [SerializeField] private float _moveDuration = 1f;
 
+
     [Header("Debug")]
     [SerializeField] private bool _debug;
     [SerializeField] private Color _debugColor = Color.white;
 
     private bool _isMoving = false;
 
+
+
     protected override void Update()
     {
         base.Update();
 
-        if(_isMoving == false && Vector3.Distance(_player.transform.position, transform.position) <= _distance)
+        if (_isMoving == false && Vector3.Distance(_player.transform.position, transform.position) <= _distance)
         {
             _isMoving = true;
 
@@ -53,8 +56,8 @@ public class Money : BaseInteractable
 
     public override void Use()
     {
+        SFX.Instance.PlayMoneyTake();
         _player.Economics.Deposit(_amount);
-
         Destroy(gameObject);
     }
 
