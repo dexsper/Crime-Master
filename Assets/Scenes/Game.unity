@@ -183,6 +183,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15445334}
   m_CullTransparentMesh: 1
+--- !u!1 &86775179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 573382386207681879, guid: 6330562db16638e48bf0786363bf5532, type: 3}
+  m_PrefabInstance: {fileID: 6048348163435634761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &90367977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 568154255280996345, guid: 4a4f1475839e07c4c8df1bac7ed8f7a2, type: 3}
@@ -5854,6 +5859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae01c2983753032468c00ecb5e5bc7ab, type: 3}
+--- !u!1 &558349894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3359875523507762327, guid: 6330562db16638e48bf0786363bf5532, type: 3}
+  m_PrefabInstance: {fileID: 6048348163435634761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &584145388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7796,11 +7806,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169656463}
   m_CullTransparentMesh: 1
---- !u!1 &1184036251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7434682218024272802, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
-  m_PrefabInstance: {fileID: 1825009234}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1184036252 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6338209321163160870, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
@@ -13740,12 +13745,16 @@ PrefabInstance:
       objectReference: {fileID: 934769091}
     - target: {fileID: 3161558614082278381, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
       propertyPath: _animationObjects.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3161558614082278381, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
       propertyPath: _animationObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 1184036251}
+      objectReference: {fileID: 86775179}
+    - target: {fileID: 3161558614082278381, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
+      propertyPath: _animationObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 558349894}
     - target: {fileID: 3161558615026801622, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
       propertyPath: m_IsActive
       value: 1

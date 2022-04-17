@@ -113,35 +113,37 @@ public class Robbery : MonoBehaviour
 
         for (int i = 0; i < _animationObjects.Count; i++)
         {
-            _animationObjects[i].SetActive(true);
+            _animationObjects[i].gameObject.SetActive(true);
         }
 
         OnAnimation?.Invoke();
 
         _cameraController.ShowBank();
 
-        StartCoroutine(_progressBar.AnimateCursor(Chance, () =>
-        {
-            if (win)
-            {
-                OnSuccess?.Invoke();
-                _finalScreen.ShowSuccess();
-            }
-            else
-            {
-                OnLose?.Invoke();
-                _finalScreen.ShowLose();
-            }
-
-            for (int i = 0; i < _animationObjects.Count; i++)
-            {
-                _animationObjects[i].SetActive(false);
-            }
-
-            gameObject.SetActive(false);
-        }));
+        StartCoroutine(_progressBar.AnimateCursor(Chance, () => FinishRobbery(win)));
 
         yield return null;
+    }
+
+    private void FinishRobbery(bool win)
+    {
+        if (win)
+        {
+            OnSuccess?.Invoke();
+            _finalScreen.ShowSuccess();
+        }
+        else
+        {
+            OnLose?.Invoke();
+            _finalScreen.ShowLose();
+        }
+
+        for (int i = 0; i < _animationObjects.Count; i++)
+        {
+            _animationObjects[i].gameObject.SetActive(false);
+        }
+
+        gameObject.SetActive(false);
     }
 
     private void SetupCards()
