@@ -56,8 +56,8 @@ public class Money : BaseInteractable
 
     public override void Use()
     {
-        SFX.Instance.PlayMoneyTake();
         _player.Economics.Deposit(_amount);
+        SFX.Instance.PlayMoneyTake();
         Destroy(gameObject);
     }
 

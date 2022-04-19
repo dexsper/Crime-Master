@@ -12,7 +12,8 @@ public class PlayerEconomics : MonoBehaviour
     [Inject]
     private LevelManager _levelManager;
     private Player _player;
-    
+    public int Money => _money;
+    public int EarnedMoney { get; private set; }
     private void Start()
     {
         _player = FindObjectOfType<Player>();
@@ -21,12 +22,9 @@ public class PlayerEconomics : MonoBehaviour
 
     private void ShowEarned(Level level)
     {
-        _player.TextNotify.Show($"+ {EarnedMoney} $", _earnedColor);
+        _player.TextNotify.Show($"+ {_money} $", _earnedColor);
         EarnedMoney = 0;
     }
-
-    public int Money => _money;
-    public int EarnedMoney { get; private set; }
 
     public void Deposit(int summ)
     {
