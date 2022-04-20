@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public UnityEvent<Level> OnNextLevel;
     public UnityEvent<Level> LevelChanged;
+    public UnityEvent<Level> OnRestart;
 
     private void Start()
     {
@@ -24,6 +25,12 @@ public class LevelManager : MonoBehaviour
     {
         CurrentLevel = startLevel;
         LevelChanged?.Invoke(CurrentLevel);
+    }
+
+    public void Restart()
+    {
+        ChangeLevel(CurrentLevel);
+        OnRestart?.Invoke(CurrentLevel);
     }
 
     public void NextLevel()

@@ -21,7 +21,7 @@ public class FinalScreen : Panel
 
     public void RestartLevel()
     {
-        _levelManager.ChangeLevel(_levelManager.CurrentLevel);
+        _levelManager.Restart();
         StartCoroutine(DisableFinishPanel());
 
         OnHide?.Invoke();

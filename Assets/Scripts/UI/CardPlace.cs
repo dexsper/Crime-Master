@@ -25,7 +25,9 @@ public class CardPlace : MonoBehaviour, IDropHandler
     private CardInfo _cardInfo;
 
     public float Chance { get; private set; }
+    public CardInfo CardInfo => _cardInfo;
     public bool HasCard => _cardInfo != null;
+
     public UnityEvent OnPlaced;
 
 

@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -17,6 +19,7 @@ public class Robbery : Panel
     [SerializeField] private ProgressBar _progressBar;
     [SerializeField] private Button _startButton;
     [SerializeField] private Image _powerFill;
+    [SerializeField] private TextMeshProUGUI _powerText;
 
     [Header("Animation")]
     [SerializeField] private List<GameObject> _animationObjects;
@@ -90,6 +93,9 @@ public class Robbery : Panel
         }
 
         _startButton.interactable = true;
+
+        _progressBar.SetProgress(0);
+        _powerFill.fillAmount = 0;
 
         OnHide?.Invoke();
     }
@@ -203,12 +209,16 @@ public class Robbery : Panel
     private void UpdateChance()
     {
         float chance = 0f;
+        float power = 0f;
 
         if (_places.Count > 0)
         {
             for (int i = 0; i < _places.Count; i++)
             {
                 chance += _places[i].Chance;
+
+                if(_places[i].HasCard)
+                    power += _places[i].CardInfo.Power;
             }
 
             chance = Mathf.Clamp01(chance / _places.Count);
@@ -225,6 +235,13 @@ public class Robbery : Panel
         {
             _powerFill.DOFillAmount(Chance, 0.3f).SetEase(Ease.OutBack);
         }
+
+
+
+        var places = _levelManager.CurrentLevel.Places;
+        float requiredPower = places.Sum(x => x.RequiredPower);
+
+        _powerText.text = $"Team power: {power} / {requiredPower}";
     }
     private void SetChildsEnable(bool enable)
     {
