@@ -377,9 +377,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnLose:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -390,6 +414,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 44165b2a19083054a88084cfa8064fd3, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1020,27 +1056,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0.93761116
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.9835625
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0.061000004
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.9062188
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 630
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1072,11 +1108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -176.5
+      value: -0.5999756
       objectReference: {fileID: 0}
     - target: {fileID: 1758496417652769465, guid: 43854cf76b232224a8cf35eb6f834dee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
