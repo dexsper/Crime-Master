@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class Robbery : Panel
     [Header("Visual Settings")]
     [SerializeField] private ProgressBar _progressBar;
     [SerializeField] private Button _startButton;
+    [SerializeField] private Image _powerFill;
 
     [Header("Animation")]
     [SerializeField] private List<GameObject> _animationObjects;
@@ -217,6 +219,11 @@ public class Robbery : Panel
         if (_progressBar != null)
         {
             _progressBar.SetProgress(Chance);
+        }
+
+        if(_powerFill != null)
+        {
+            _powerFill.DOFillAmount(Chance, 0.3f).SetEase(Ease.OutBack);
         }
     }
     private void SetChildsEnable(bool enable)
