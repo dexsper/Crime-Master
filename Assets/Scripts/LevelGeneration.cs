@@ -59,6 +59,9 @@ public class LevelGeneration : MonoBehaviour
                 pos.x = _cardSpacing.x;
                 pos.y = _cardYOffset;
 
+                if (pos.z > _end.position.z)
+                    break;
+
                 SpawnCard(card.CardOne, pos);
 
                 pos.x = -pos.x;
@@ -70,6 +73,9 @@ public class LevelGeneration : MonoBehaviour
                 pos.z += _moneySpacing.y;
                 pos.x = _moneySpacing.x;
                 pos.y = _moneyYOffset;
+
+                if (pos.z > _end.position.z)
+                    break;
 
                 SpawnMoney(pos);
 
