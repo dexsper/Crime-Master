@@ -20,7 +20,8 @@ public partial class Level : ScriptableObject
 
     [Header("UI")]
     [SerializeField] private Sprite _safeSprite;
-    [SerializeField] private GameObject _rabberyField; 
+    [SerializeField] private GameObject _rabberyField;
+    [SerializeField] private GameObject _enviromentPrefab;
 
     [Header("Cards")]
     [SerializeField] private List<CardSpawn> _cards;
@@ -39,5 +40,6 @@ public partial class Level : ScriptableObject
     }
     public Sprite SafeSprite => _safeSprite;
     public GameObject PlacesField => _rabberyField;
+    public GameObject Enviroment => _enviromentPrefab;
 
 }

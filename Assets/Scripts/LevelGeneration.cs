@@ -34,8 +34,18 @@ public class LevelGeneration : MonoBehaviour
 
     [Inject]
     private LevelManager _levelManager;
+
+    private Transform _moneyParent;
+    private Transform _cardsParent;
+
     private void Awake()
     {
+        _moneyParent = new GameObject("Money").transform;
+        _cardsParent = new GameObject("Cards").transform;
+
+        _moneyParent.transform.SetParent(transform);
+        _cardsParent.transform.SetParent(transform);
+
         _levelManager.LevelChanged.AddListener(Generate);
     }
 
@@ -88,14 +98,17 @@ public class LevelGeneration : MonoBehaviour
 
     private void SpawnMoney(Vector3 pos)
     {
-        _container.InstantiatePrefab(_moneyPrefab, pos, Quaternion.identity, transform);
+        var money = _container.InstantiatePrefab(_moneyPrefab);
+        money.transform.position = pos;
+        money.transform.SetParent(_moneyParent, true);
     }
 
-    private void SpawnCard(CardInfo info, Vector3 position)
+    private void SpawnCard(CardInfo info, Vector3 pos)
     {
         var card = _container.InstantiatePrefabForComponent<WorldCard>(_cardPrefab.gameObject);
 
-        card.transform.position = position;
+        card.transform.position = pos;
+        card.transform.SetParent(_cardsParent, true);
         card.Setup(info);
 
         card.gameObject.SetActive(true);
