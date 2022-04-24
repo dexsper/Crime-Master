@@ -23,17 +23,9 @@ public partial class Level : ScriptableObject
     [SerializeField] private GameObject _rabberyField; 
 
     [Header("Cards")]
-    [Range(10, 20)]
-    [SerializeField] private float _cardSpace = 10f;
     [SerializeField] private List<CardSpawn> _cards;
 
-    [Header("Money")]
-    [Range(10, 30)]
-    [SerializeField] private float _moneySpace = 5f;
-
     public List<CardSpawn> Cards => _cards;
-    public float CardSpace => _cardSpace;
-    public float MoneySpace => _moneySpace;
     public string LevelName => _levelName;
     public CardPlace[] Places
     {
