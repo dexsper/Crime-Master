@@ -16,4 +16,6 @@ MonoBehaviour:
   _cost: 35
   _tier: 0
   _power: 3
+  _terrifying: 4
+  _intellect: 0
   _iconSprite: {fileID: 21300000, guid: 0116364f9567a804ea1ce1a468cfeebb, type: 3}

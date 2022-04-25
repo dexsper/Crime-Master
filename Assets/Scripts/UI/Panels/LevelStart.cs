@@ -23,6 +23,8 @@ public class LevelStart : Panel
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI _levelNameText;
     [SerializeField] private TextMeshProUGUI _powerText;
+    [SerializeField] private TextMeshProUGUI _terrifyingText;
+    [SerializeField] private TextMeshProUGUI _intelectText;
 
     [Header("Images")]
     [SerializeField] private Image _safeImage;
@@ -48,12 +50,33 @@ public class LevelStart : Panel
 
         var level = _levelManager.CurrentLevel;
 
-        int firePower = level.Places.Sum(x => x.RequiredPower);
+        var places = level.Places;
+
+        int power = 0;
+        int terrifying = 0;
+        int intelect = 0;
+
+        for (int i = 0; i < places.Length; i++)
+        {
+            intelect += places[i].Intellect;
+            terrifying += places[i].Terrifying;
+            power += places[i].Power;
+        }
 
         if (_levelNameText != null)
             _levelNameText.text = level.LevelName;
+
         if (_powerText != null)
-            _powerText.text = $"{firePower}";
+            _powerText.text = $"{power}";
+        if (_terrifyingText != null)
+            _terrifyingText.text = $"{terrifying}";
+        if (_intelectText != null)
+            _intelectText.text = $"{intelect}";
+
+        _intelectText.transform.parent.gameObject.SetActive(intelect > 0);
+        _terrifyingText.transform.parent.gameObject.SetActive(terrifying > 0);
+        _powerText.transform.parent.gameObject.SetActive(power > 0);
+
 
         if (_safeImage != null)
             _safeImage.sprite = level.SafeSprite;

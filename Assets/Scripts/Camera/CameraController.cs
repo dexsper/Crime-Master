@@ -24,6 +24,11 @@ public class CameraController : MonoBehaviour
     [Inject]
     private Player _player;
 
+    private void Start()
+    {
+        OnCityShow?.Invoke();
+    }
+
     public void ShowCity()
     {
         _city.gameObject.SetActive(true);

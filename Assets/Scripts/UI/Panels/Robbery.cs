@@ -1,8 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -10,8 +8,6 @@ using Zenject;
 
 public class Robbery : Panel
 {
-    [SerializeField] private CityMarkers _cityMarkers;
-
     [Header("Interface")]
     [SerializeField] private Transform _placesParent;
 
@@ -19,7 +15,6 @@ public class Robbery : Panel
     [SerializeField] private ProgressBar _progressBar;
     [SerializeField] private Button _startButton;
     [SerializeField] private Image _powerFill;
-    [SerializeField] private TextMeshProUGUI _powerText;
 
     [Header("Animation")]
     [SerializeField] private List<GameObject> _animationObjects;
@@ -33,24 +28,34 @@ public class Robbery : Panel
     public UnityEvent OnLose;
     public UnityEvent OnSuccess;
 
-    public float Chance { get; private set; }
+    public float Chance
+    {
+        get => _chance;
+        private set
+        {
+            if (value != _chance)
+                OnChanceChanged?.Invoke();
 
+            _chance = value;
+        }
+    }
+
+    public List<CardPlace> Places => _places;
+    [HideInInspector] public UnityEvent OnChanceChanged;
+
+    private float _chance = 0f;
     [Inject]
     private LevelManager _levelManager;
-
     [Inject]
     private Player _player;
-
     [Inject]
     private FinalScreen _finalScreen;
-
     [Inject]
     private DiContainer _container;
-
     [Inject]
     private CameraController _cameraController;
-
     private List<CardPlace> _places = new List<CardPlace>();
+
     private bool isStart = false;
 
     private void Awake()
@@ -217,7 +222,7 @@ public class Robbery : Panel
             {
                 chance += _places[i].Chance;
 
-                if(_places[i].HasCard)
+                if (_places[i].HasCard)
                     power += _places[i].CardInfo.Power;
             }
 
@@ -231,17 +236,10 @@ public class Robbery : Panel
             _progressBar.SetProgress(Chance);
         }
 
-        if(_powerFill != null)
+        if (_powerFill != null)
         {
             _powerFill.DOFillAmount(Chance, 0.3f).SetEase(Ease.OutBack);
         }
-
-
-
-        var places = _levelManager.CurrentLevel.Places;
-        float requiredPower = places.Sum(x => x.RequiredPower);
-
-        _powerText.text = $"Team power: {power} / {requiredPower}";
     }
     private void SetChildsEnable(bool enable)
     {

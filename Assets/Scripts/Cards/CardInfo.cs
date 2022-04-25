@@ -13,7 +13,7 @@ public enum CardTier
 
 
 
-[CreateAssetMenu( menuName = "Crime/Card", fileName = "New Card")]
+[CreateAssetMenu(menuName = "Crime/Card", fileName = "New Card")]
 public class CardInfo : ScriptableObject, IStats
 {
 
@@ -25,16 +25,24 @@ public class CardInfo : ScriptableObject, IStats
     [Header("Abilities")]
     [Range(1, 30)]
     [SerializeField] private int _power;
+    [Range(1, 30)]
+    [SerializeField] private int _terrifying;
+    [Range(1, 30)]
+    [SerializeField] private int _intellect;
+
 
     [Header("UI")]
     [SerializeField] private Sprite _iconSprite;
 
     public string Name => _name;
     public int Cost => _cost;
-    public int Power => _power;
     public Sprite IconSprite => _iconSprite;
+    public int Terrifying => _terrifying;
+    public int Power => _power;
+    public int Intellect { get => _intellect; }
 
     public CardTier Tier => _tier;
+
 
     public static Dictionary<CardTier, Color> TierColors = new Dictionary<CardTier, Color>
     {

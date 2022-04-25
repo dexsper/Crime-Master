@@ -3,16 +3,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 using DG.Tweening;
-using System.Collections;
 using UnityEngine.Events;
 
-public class CardPlace : MonoBehaviour, IDropHandler
+public class CardPlace : MonoBehaviour, IDropHandler, IStats
 {
     [Header("Require Abilities")]
     [Range(1, 30)]
     [SerializeField] private int _requiredPower;
-
-    public int RequiredPower => _requiredPower;
+    [Range(1, 30)]
+    [SerializeField] private int _requiredTerrifying;
+    [Range(1, 30)]
+    [SerializeField] private int _requiredIntelect;
 
     [Header("Images")]
     [SerializeField] private Image _borderImage;
@@ -27,6 +28,12 @@ public class CardPlace : MonoBehaviour, IDropHandler
     public float Chance { get; private set; }
     public CardInfo CardInfo => _cardInfo;
     public bool HasCard => _cardInfo != null;
+
+    public int Terrifying => _requiredTerrifying;
+
+    public int Power => _requiredPower;
+
+    public int Intellect => _requiredIntelect;
 
     public UnityEvent OnPlaced;
 
@@ -71,7 +78,11 @@ public class CardPlace : MonoBehaviour, IDropHandler
 
         if (_cardInfo != null)
         {
-            chance = (float)_cardInfo.Power / (float)RequiredPower;
+            var powerChance = (float)_cardInfo.Power / (float)Power;
+            var terrifyingChance = (float)_cardInfo.Terrifying / (float)Terrifying;
+            var intelectChance = (float)_cardInfo.Terrifying / (float)Intellect;
+
+            chance =  Mathf.Clamp01((powerChance + terrifyingChance + intelectChance) / 3f);
         }
 
         return chance;
