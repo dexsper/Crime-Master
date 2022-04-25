@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: M4 Rifle
   _cost: 80
   _tier: 4
-  _power: 7
-  _terrifying: 4
-  _intellect: 0
+  _power: 5
+  _terrifying: 8
+  _intellect: 1
   _iconSprite: {fileID: 21300000, guid: 374e76154b0517643aaacd0fa1f546af, type: 3}

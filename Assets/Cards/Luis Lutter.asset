@@ -17,5 +17,5 @@ MonoBehaviour:
   _tier: 3
   _power: 9
   _terrifying: 4
-  _intellect: 0
+  _intellect: 4
   _iconSprite: {fileID: 21300000, guid: 4ffcd88cfc2cc5f458b14c21e8db45f7, type: 3}
