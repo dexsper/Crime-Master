@@ -103,13 +103,16 @@ public class UI_LevelCards : MonoBehaviour
             _terrifying.Text.text = $"{terrifying} / {requiredTerrifying}";
             _intelect.Text.text = $"{intelect} / {requiredIntelect}";
 
-            _power.Image.DOFillAmount(powerValue, 0.3f).SetEase(Ease.OutBack);
-            _terrifying.Image.DOFillAmount(terrifyingValue, 0.3f).SetEase(Ease.OutBack);
-            _intelect.Image.DOFillAmount(intelectValue, 0.3f).SetEase(Ease.OutBack);
+            if (_power.Image != null)
+                _power.Image.DOFillAmount(powerValue, 0.3f).SetEase(Ease.OutBack);
+            if (_terrifying.Image != null)
+                _terrifying.Image.DOFillAmount(terrifyingValue, 0.3f).SetEase(Ease.OutBack);
+            if (_intelect.Image != null)
+                _intelect.Image.DOFillAmount(intelectValue, 0.3f).SetEase(Ease.OutBack);
 
-            _power.Image.transform.parent.gameObject.SetActive(requiredPower > 0);
-            _terrifying.Image.transform.parent.gameObject.SetActive(requiredTerrifying > 0);
-            _intelect.Image.transform.parent.gameObject.SetActive(requiredIntelect > 0);
+            _power.Text.transform.parent.gameObject.SetActive(requiredPower > 0);
+            _terrifying.Text.transform.parent.gameObject.SetActive(requiredTerrifying > 0);
+            _intelect.Text.transform.parent.gameObject.SetActive(requiredIntelect > 0);
 
         }
         else
