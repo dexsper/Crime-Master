@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forwardSpeed: 7
-  _sideSpeed: 5
+  _sideSpeed: 7
   _walkClip: {fileID: 8300000, guid: 4757b5e3f722a9d4da9600ebc7d80ada, type: 3}
   _source: {fileID: 547585757}
   _walkClipDelay: 0.26
@@ -234,7 +234,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: aca728ca0d5f38e4db6b8b5321d7f206, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 9b5de1aded16f7146b90c5f66651753d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -299,6 +299,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character New Texture
       objectReference: {fileID: 0}
+    - target: {fileID: 5005108926614040143, guid: e64f62bcc47b39c4a83bbd7dd0ab6372, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f937a5560e063c42895364e27e837d5, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e64f62bcc47b39c4a83bbd7dd0ab6372, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cc7e3a036f3c3a7409fc6b025d0ebf70, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e64f62bcc47b39c4a83bbd7dd0ab6372, type: 3}
 --- !u!4 &8053492981014260018 stripped

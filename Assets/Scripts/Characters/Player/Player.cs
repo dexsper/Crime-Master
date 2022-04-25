@@ -44,4 +44,12 @@ public class Player : MonoBehaviour
     {
         moodParticles[1].Play();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out ITrap trap))
+        {
+            trap.Activate(this);
+        }
+    }
 }
