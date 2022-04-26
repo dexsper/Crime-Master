@@ -153,6 +153,16 @@ Transform:
   m_Father: {fileID: 449336824}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &129594295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8150393367708956238, guid: d70f73dff88cc2048b648387913732ea, type: 3}
+  m_PrefabInstance: {fileID: 1270149451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &130796567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2560614205439403913, guid: d70f73dff88cc2048b648387913732ea, type: 3}
+  m_PrefabInstance: {fileID: 1270149451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &154684942 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3631179447025461629, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
@@ -990,6 +1000,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!1 &974029139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 782673948384083529, guid: d70f73dff88cc2048b648387913732ea, type: 3}
+  m_PrefabInstance: {fileID: 1270149451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1000578988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1364,10 @@ PrefabInstance:
     - target: {fileID: 7027019531999109709, guid: d70f73dff88cc2048b648387913732ea, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150393367708956238, guid: d70f73dff88cc2048b648387913732ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d70f73dff88cc2048b648387913732ea, type: 3}
@@ -2055,6 +2074,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robbery
       objectReference: {fileID: 0}
+    - target: {fileID: 3161558614082278381, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
+      propertyPath: _animationObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 974029139}
+    - target: {fileID: 3161558614082278381, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
+      propertyPath: _animationObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 130796567}
+    - target: {fileID: 3161558614082278381, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
+      propertyPath: _animationObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 129594295}
     - target: {fileID: 3161558614082278381, guid: 5f77ad40a6c3e384fa18f4fb56e6fc3e, type: 3}
       propertyPath: OnHide.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

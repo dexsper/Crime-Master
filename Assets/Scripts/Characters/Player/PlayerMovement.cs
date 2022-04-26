@@ -58,4 +58,16 @@ public class PlayerMovement : MonoBehaviour
             IsMove = false;
         }
     }
+    public IEnumerator Force(Vector3 direction, float power, float t)
+    {
+        IsForced = true;
+
+        _rigidbody.velocity = Vector3.zero;
+
+        _rigidbody.AddForce(direction * power, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(t);
+
+        IsForced = false;
+    }
 }

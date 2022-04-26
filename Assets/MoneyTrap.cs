@@ -10,17 +10,21 @@ public class MoneyTrap : MonoBehaviour, ITrap
     [SerializeField] private float _destroyTime = 1f;
     [SerializeField] private Color _notifyColor = Color.red;
 
-    public UnityEvent OnActivated;
+    [SerializeField] private GameObject _destroyEffect;
 
     public void Activate(Player player)
     {
-        OnActivated?.Invoke();
-
         int amount = (int)Mathf.Lerp(0, player.Economics.Money, _percentageAmount / 100f);
 
         player.Economics.Take(amount);
         player.TextNotify.Show($"- {amount}$", _notifyColor);
 
-        Destroy(gameObject, _destroyTime);
+        if (_destroyEffect != null)
+        {
+            var effect = Instantiate(_destroyEffect, transform.position + new Vector3(0, .5f, 0), Quaternion.identity);
+            Destroy(effect, _destroyTime);
+        }
+
+        Destroy(gameObject, _destroyTime / 2f);
     }
 } 

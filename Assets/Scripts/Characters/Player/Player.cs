@@ -50,6 +50,13 @@ public class Player : MonoBehaviour
         if(other.TryGetComponent(out ITrap trap))
         {
             trap.Activate(this);
+
+            Vector3 dir = transform.position - other.transform.position;
+            dir.x = 0;
+            dir.y = 0;
+            dir.Normalize();
+
+            StartCoroutine(_playerMovement.Force(dir, 7f, 1.5f));
         }
     }
 }
