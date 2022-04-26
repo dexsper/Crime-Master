@@ -63,7 +63,7 @@ public class UI_RobberyCards : MonoBehaviour
         _intelect.Text.text = $"Team intelect: {intelect} / {requiredIntelect}";
 
         _power.Image.DOFillAmount(powerValue, 0.3f).SetEase(Ease.OutBack);
-        _terrifying.Image.DOFillAmount(intelectValue, 0.3f).SetEase(Ease.OutBack);
+        _terrifying.Image.DOFillAmount(terrifyingValue, 0.3f).SetEase(Ease.OutBack);
         _intelect.Image.DOFillAmount(terrifyingValue, 0.3f).SetEase(Ease.OutBack);
 
         _power.Image.transform.parent.gameObject.SetActive(requiredPower > 0);
