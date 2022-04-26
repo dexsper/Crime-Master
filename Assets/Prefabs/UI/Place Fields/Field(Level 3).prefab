@@ -220,7 +220,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: _requiredPower
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredIntelect
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredTerrifying
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676102, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: m_Name
@@ -334,7 +342,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: _requiredPower
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredIntelect
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredTerrifying
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676102, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: m_Name
@@ -452,7 +468,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: _requiredPower
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredIntelect
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredTerrifying
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676102, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: m_Name
@@ -566,7 +590,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: _requiredPower
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredIntelect
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222514538094676098, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
+      propertyPath: _requiredTerrifying
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9222514538094676102, guid: fa9d442f702d21849bb7c8bb7a97e2d7, type: 3}
       propertyPath: m_Name
