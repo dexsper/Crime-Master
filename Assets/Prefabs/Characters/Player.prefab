@@ -87,6 +87,8 @@ MonoBehaviour:
   - {fileID: 1272300920791442326}
   _textNotify: {fileID: 0}
   _spawnPoint: {fileID: 0}
+  _source: {fileID: 547585757}
+  _trapedClip: {fileID: 8300000, guid: 3633e25d6037818448daba5c4913090b, type: 3}
 --- !u!114 &7982353709949847947
 MonoBehaviour:
   m_ObjectHideFlags: 0

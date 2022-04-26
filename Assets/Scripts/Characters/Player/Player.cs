@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     [SerializeField] private TimedText _textNotify;
     [SerializeField] private Transform _spawnPoint;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _trapedClip;
+
     private PlayerMovement _playerMovement;
     private PlayerInventory _playerInventory;
     private PlayerEconomics _playerEconomics;
@@ -16,7 +20,6 @@ public class Player : MonoBehaviour
     public PlayerMovement Movement => _playerMovement;
     public PlayerInventory Inventory => _playerInventory;
     public TimedText TextNotify => _textNotify;
-
     [Inject]
     private LevelManager _levelManager;
 
@@ -56,7 +59,12 @@ public class Player : MonoBehaviour
             dir.y = 0;
             dir.Normalize();
 
-            StartCoroutine(_playerMovement.Force(dir, 7f, 1.5f));
+            if(_source != null && _trapedClip != null)
+            {
+                _source.PlayOneShot(_trapedClip);
+            }
+
+            StartCoroutine(_playerMovement.Force(dir, 7f, 2f));
         }
     }
 }
