@@ -48,13 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f169c777b399146429fb903612c8e7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardSpacing: {x: 2, y: 2}
+  _cardSpacing: {x: 2, y: 2.5}
   _cardPrefab: {fileID: 5463113578655022693, guid: b5032063c2d29304199eefe0db18910b, type: 3}
-  _moneyAlteration: 11
-  _cardYOffset: 2
+  _moneyAlteration: 20
+  _cardYOffset: 4
   _moneyPrefab: {fileID: 3170461042205125590, guid: 1c1a859f447542941a61ab64a5d35908, type: 3}
-  _moneySpacing: {x: 2, y: 2}
-  _moneyYOffset: 0.2
+  _moneySpacing: {x: 2, y: 4}
+  _moneyYOffset: 2
   _start: {fileID: 948445264212245174}
   _end: {fileID: 948445263675334003}
   _debug: 1
@@ -16198,8 +16198,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.4461417, y: 0.37020418, z: 189.59901}
-  m_Center: {x: 0.04309573, y: -0.31489825, z: 91}
+  m_Size: {x: 6.4461417, y: 0.37020418, z: 190.66374}
+  m_Center: {x: 0.04309576, y: -0.31489825, z: 90.46764}
 --- !u!65 &1831172788063603740
 BoxCollider:
   m_ObjectHideFlags: 0

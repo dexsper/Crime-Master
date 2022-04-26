@@ -1289,34 +1289,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Track
       objectReference: {fileID: 0}
-    - target: {fileID: 948445263959161127, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: _cardYOffset
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 948445263959161127, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: _moneyYOffset
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 948445263959161127, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: _cardSpacing.y
-      value: 2.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 948445263959161127, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: _moneyAlteration
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651881152359921972, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: m_Size.z
-      value: 190.66374
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651881152359921972, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: m_Center.x
-      value: 0.04309576
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651881152359921972, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: m_Center.z
-      value: 90.46764
-      objectReference: {fileID: 0}
     - target: {fileID: 3480379317892131710, guid: d70f73dff88cc2048b648387913732ea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1359,14 +1331,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3480379317892131710, guid: d70f73dff88cc2048b648387913732ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7027019531999109709, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150393367708956238, guid: d70f73dff88cc2048b648387913732ea, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
