@@ -12,18 +12,29 @@ public class PlayerEconomics : MonoBehaviour
     [Inject]
     private LevelManager _levelManager;
     private Player _player;
+    [Inject]
+    private Robbery _robbery;
+
     public int Money => _money;
     public int EarnedMoney { get; private set; }
+
     private void Start()
     {
         _player = FindObjectOfType<Player>();
-        _levelManager.OnNextLevel.AddListener(ShowEarned);
+        _robbery.OnLose.AddListener(RemoveMoney);
+        _levelManager.LevelChanged.AddListener((x) => ResetEarned());
     }
 
-    private void ShowEarned(Level level)
+    private void ResetEarned()
     {
-        _player.TextNotify.Show($"+ {_money} $", _earnedColor);
         EarnedMoney = 0;
+    }
+
+    private void RemoveMoney()
+    {
+        _money -= EarnedMoney;
+
+        ResetEarned();
     }
 
     public void Deposit(int summ)
@@ -31,6 +42,7 @@ public class PlayerEconomics : MonoBehaviour
         _money += summ;
         EarnedMoney += summ;
     }
+
     public void Take(int summ)
     {
         if (_money < summ)
@@ -38,6 +50,7 @@ public class PlayerEconomics : MonoBehaviour
             throw new System.Exception("Summ can't be more than money.");
 
         _money -= summ;
+        EarnedMoney -= summ;
 
     }
     public bool EnoughMoney(int summ) => _money >= summ;

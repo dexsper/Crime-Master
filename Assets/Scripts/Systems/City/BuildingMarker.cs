@@ -8,21 +8,28 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private GameObject _marker;
     [SerializeField] private Material _emissionMaterial;
-    [SerializeField] private GameObject _animationObject;
 
     private Material _defaultMaterial;
     private bool _enabled = false;
     private MeshRenderer _meshRenderer;
     [Inject]
     private LevelStart _levelStart;
+    private Level _level;
+    [Inject]
+    private LevelManager _levelManager;
 
-    public GameObject AnimationObject => _animationObject;
+    public void SetLevel(Level level)
+    {
+        _level = level;
+
+        SetEnable(true);
+    }
+
 
     private void Awake()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
         _marker.SetActive(false);
-        _animationObject.SetActive(false);
         _defaultMaterial = _meshRenderer.material;
     }
 
@@ -36,7 +43,7 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
         StopAllCoroutines();
     }
 
-    public void SetEnable(bool enable)
+    private void SetEnable(bool enable)
     {
         _enabled = enable;
 
@@ -50,9 +57,12 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
     {
         if (!_enabled) return;
 
+        _levelManager.ChangeLevel(_level);
+
         _levelStart.transform.localScale = Vector3.zero;
         _levelStart.gameObject.SetActive(true);
         _levelStart.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+
 
         SetEnable(false);
     }

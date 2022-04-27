@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 using DG.Tweening;
+using TMPro;
 
 public class FinalScreen : Panel
 {
@@ -10,25 +11,23 @@ public class FinalScreen : Panel
     [SerializeField] private GameObject _successPanel;
     [SerializeField] private GameObject _losePanel;
 
-    [Inject]
-    private LevelManager _levelManager;
+    [Header("Success")]
+    [SerializeField] private TextMeshProUGUI _earnedText;
+    [SerializeField] private Transform _characterIconParent;
 
     [Inject]
     private CameraController _cameraController;
-
     [Inject]
     private Player _player;
 
     public void RestartLevel()
     {
-        _levelManager.Restart();
         StartCoroutine(DisableFinishPanel());
 
         OnHide?.Invoke();
     }
     public void NextLevel()
     {
-        _levelManager.NextLevel();
         StartCoroutine(DisableFinishPanel());
 
         OnHide?.Invoke();
@@ -46,13 +45,30 @@ public class FinalScreen : Panel
 
     public void ShowSuccess()
     {
+        var uiSkin = Instantiate(_player.Skin.Next.ImagePrefab, _characterIconParent);
+
         transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         _successPanel.transform.localScale = Vector3.zero;
         _successPanel.gameObject.SetActive(true);
-        _successPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _successPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
+        {
+            float progress = Mathf.Clamp01((float)_player.Economics.EarnedMoney / (float)_player.Skin.Next.NeedMoney);
+
+            uiSkin.UpdateProgress(progress);
+
+            _player.Skin.AddProgress(progress);
+
+        });
+
+        if (_earnedText != null)
+        {
+            _earnedText.text = $"{_player.Economics.EarnedMoney}$";
+        }
+
 
         OnShow?.Invoke();
     }
+
 
     private IEnumerator DisableFinishPanel()
     {
@@ -63,5 +79,10 @@ public class FinalScreen : Panel
         _successPanel.gameObject.SetActive(false);
         _losePanel.gameObject.SetActive(false);
 
+
+        for (int i = 0; i < _characterIconParent.childCount; i++)
+        {
+            Destroy(_characterIconParent.GetChild(i).gameObject);
+        }
     }
 }

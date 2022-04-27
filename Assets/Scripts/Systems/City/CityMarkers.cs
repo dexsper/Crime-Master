@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -10,31 +8,37 @@ public class CityMarkers : MonoBehaviour
 
     [Inject]
     private LevelManager _levelManager;
+    [Inject]
+    private CameraController _cameraController;
+    [Inject]
+    private Robbery _robbery;
 
-    private void Awake()
+    private List<Level> _completedLevels = new List<Level>();
+
+    private void Start()
     {
-        _levelManager.LevelChanged.AddListener(ShowMarker);
+        _cameraController.OnCityShow.AddListener(UpdateMarkers);
+        _robbery.OnSuccess.AddListener(CompleteLevel);
+
     }
 
-    private int _currentMarker = 0;
-
-    private void ShowMarker(Level level)
+    private void CompleteLevel()
     {
-        if (_currentMarker > _buildings.Length)
-            _currentMarker = 0;
-
-        _buildings[_currentMarker].SetEnable(true);
+        _completedLevels.Add(_levelManager.CurrentLevel);
     }
 
-    public IEnumerator ShowAnimation(Action callback)
+    private void UpdateMarkers()
     {
-        _buildings[_currentMarker].AnimationObject.SetActive(true);
+        for (int i = 0; i < _levelManager.Levels.Count; i++)
+        {
+            var level = _levelManager.Levels[i];
 
-        yield return new WaitForSeconds(2.5f);
+            if (_completedLevels.Contains(level)) continue;
 
-        _buildings[_currentMarker].AnimationObject.SetActive(false);
+            if (i >= _buildings.Length)
+                break;
 
-
-        callback?.Invoke();
+            _buildings[i].SetLevel(level);
+        }
     }
 }

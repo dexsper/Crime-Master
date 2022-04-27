@@ -14,20 +14,23 @@ public class PlayerInventory : MonoBehaviour
     [Inject]
     private LevelManager _levelManager;
 
+    [Inject]
+    private Robbery _robbery;
+
     private List<CardInfo> _tempCards = new List<CardInfo>();
 
     private void Start()
     {
-        _levelManager.OnRestart.AddListener(RemoveTempCards);
-        _levelManager.OnNextLevel.AddListener(ClearTempCards);
+        _robbery.OnLose.AddListener(RemoveTempCards);
+        _robbery.OnSuccess.AddListener(ClearTempCards);
     }
 
-    private void ClearTempCards(Level arg0)
+    private void ClearTempCards()
     {
         _tempCards.Clear();
     }
 
-    private void RemoveTempCards(Level level)
+    private void RemoveTempCards()
     {
         for (int i = 0; i < _tempCards.Count; i++)
         {

@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
 
     private PlayerMovement _playerMovement;
     private PlayerInventory _playerInventory;
+    private PlayerSkin _playerSkin;
     private PlayerEconomics _playerEconomics;
 
     public PlayerEconomics Economics => _playerEconomics;
+    public PlayerSkin Skin => _playerSkin;
     public PlayerMovement Movement => _playerMovement;
     public PlayerInventory Inventory => _playerInventory;
     public TimedText TextNotify => _textNotify;
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
     {
         _playerEconomics = GetComponent<PlayerEconomics>();
         _playerInventory = GetComponent<PlayerInventory>();
+        _playerSkin = GetComponent<PlayerSkin>();
         _playerMovement = GetComponent<PlayerMovement>();
 
         _levelManager.LevelChanged.AddListener(Respawn);
