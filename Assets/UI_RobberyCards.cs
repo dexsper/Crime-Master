@@ -42,7 +42,7 @@ public class UI_RobberyCards : MonoBehaviour
         {
             CardPlace cardPlace = places[i];
 
-            if(cardPlace.CardInfo != null)
+            if (cardPlace.CardInfo != null)
             {
                 power += cardPlace.CardInfo.Power;
                 intelect += cardPlace.CardInfo.Intellect;
@@ -53,7 +53,9 @@ public class UI_RobberyCards : MonoBehaviour
             requiredTerrifying += cardPlace.Terrifying;
             requiredPower += cardPlace.Power;
         }
-
+        Debug.Log(power + "   " + requiredPower);
+        if (requiredPower == 0 || requiredIntelect == 0 || requiredTerrifying == 0)
+            return;
         float powerValue = Mathf.Clamp01((float)power / (float)requiredPower);
         float intelectValue = Mathf.Clamp01((float)intelect / (float)requiredIntelect);
         float terrifyingValue = Mathf.Clamp01((float)terrifying / (float)requiredTerrifying);
@@ -69,7 +71,5 @@ public class UI_RobberyCards : MonoBehaviour
         _power.Image.transform.parent.gameObject.SetActive(requiredPower > 0);
         _terrifying.Image.transform.parent.gameObject.SetActive(requiredTerrifying > 0);
         _intelect.Image.transform.parent.gameObject.SetActive(requiredIntelect > 0);
-
-
     }
 }
