@@ -1289,6 +1289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Track
       objectReference: {fileID: 0}
+    - target: {fileID: 948445263959161127, guid: d70f73dff88cc2048b648387913732ea, type: 3}
+      propertyPath: _moneyAlteration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3480379317892131710, guid: d70f73dff88cc2048b648387913732ea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1935,14 +1939,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745103259}
-  m_LocalRotation: {x: -0.1613455, y: 0, z: 0, w: 0.98689806}
-  m_LocalPosition: {x: 0.8, y: 49.47, z: 83.9}
+  m_LocalRotation: {x: -0.32023993, y: -0.13841346, z: 0.02390461, w: 0.9368653}
+  m_LocalPosition: {x: 5.38, y: 85.62, z: 151.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1475905161}
   m_Father: {fileID: 1307377718}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -18.57, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -36.401, y: -19.952, z: 9.543}
 --- !u!1001 &1825009234
 PrefabInstance:
   m_ObjectHideFlags: 0
