@@ -10,8 +10,6 @@ using UnityEngine.Events;
 
 public class LevelStart : Panel
 {
-    [SerializeField] private GameObject _city;
-
     [Header("Cameras")]
     [SerializeField] private CinemachineVirtualCamera _playerCamera;
     [SerializeField] private CinemachineVirtualCamera _cityCamera;
@@ -84,15 +82,23 @@ public class LevelStart : Panel
 
     public void StartLevel()
     {
-        StartCoroutine(DisableStartPanel());
+        Close();
+
         _cameraController.ShowPlayer();
     }
 
-    private IEnumerator DisableStartPanel()
+    public void Close()
     {
-        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack);
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
-        _city.gameObject.SetActive(false);
+        DisableStartPanel();
+    }
+
+    private void DisableStartPanel()
+    {
+        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            gameObject.SetActive(false);
+        });
+
+        OnHide?.Invoke();
     }
 }

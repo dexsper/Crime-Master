@@ -45,8 +45,12 @@ public class CameraController : MonoBehaviour
         {
             _bankCamera.Priority = -1;
             _playerCamera.Priority = 1;
+
+            _city.gameObject.SetActive(false);
+
             _input.Enabled = true;
             _player.Movement.enabled = true;
+
             OnPlayerShow?.Invoke();
         });
     }

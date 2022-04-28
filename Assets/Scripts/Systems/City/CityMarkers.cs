@@ -33,10 +33,15 @@ public class CityMarkers : MonoBehaviour
         {
             var level = _levelManager.Levels[i];
 
-            if (_completedLevels.Contains(level)) continue;
-
             if (i >= _buildings.Length)
                 break;
+
+
+            if (_completedLevels.Contains(level))
+            {
+                _buildings[i].SetEnable(false);
+                continue;
+            }
 
             _buildings[i].SetLevel(level);
         }

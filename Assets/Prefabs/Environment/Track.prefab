@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardSpacing: {x: 2, y: 2.5}
   _cardPrefab: {fileID: 5463113578655022693, guid: b5032063c2d29304199eefe0db18910b, type: 3}
-  _moneyAlteration: 20
+  _moneyAlteration: 10
   _cardYOffset: 4
   _moneyPrefab: {fileID: 3170461042205125590, guid: 1c1a859f447542941a61ab64a5d35908, type: 3}
   _moneySpacing: {x: 2, y: 4}

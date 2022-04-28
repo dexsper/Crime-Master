@@ -43,7 +43,7 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
         StopAllCoroutines();
     }
 
-    private void SetEnable(bool enable)
+    public void SetEnable(bool enable)
     {
         _enabled = enable;
 
@@ -62,9 +62,6 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
         _levelStart.transform.localScale = Vector3.zero;
         _levelStart.gameObject.SetActive(true);
         _levelStart.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
-
-
-        SetEnable(false);
     }
 
     private IEnumerator IEPlayMarkerAnimation()

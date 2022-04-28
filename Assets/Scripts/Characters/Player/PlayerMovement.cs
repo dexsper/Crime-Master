@@ -16,8 +16,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip _walkClip;
     [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _trapedClip;
     [Range(0, 1f)]
     [SerializeField] private float _walkClipDelay;
+
+    [Header("Trap")]
+    [Range(1, 10)]
+    [SerializeField] private float _trapPower = 7;
+    [Range(1, 3)]
+    [SerializeField] private float _forceTime = 2f;
+    [SerializeField] private ParticleSystem _sparksParticle;
 
     private Rigidbody _rigidbody;
 
@@ -58,6 +66,26 @@ public class PlayerMovement : MonoBehaviour
             IsMove = false;
         }
     }
+
+    public void TrapForce(Vector3 pos)
+    {
+        Vector3 dir = transform.position - pos;
+        dir.x = 0;
+        dir.y = 0;
+        dir.Normalize();
+
+        if (_source != null && _trapedClip != null)
+        {
+            _source.PlayOneShot(_trapedClip);
+        }
+
+        if (_sparksParticle != null)
+            _sparksParticle.Play(true);
+
+        StartCoroutine(Force(dir, _trapPower, _forceTime));
+
+    }
+
     public IEnumerator Force(Vector3 direction, float power, float t)
     {
         IsForced = true;

@@ -83,13 +83,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179d612106423f7408c1fc0744cceb5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moodParticles:
-  - {fileID: 1494016004305977765}
-  - {fileID: 1272300920791442326}
   _textNotify: {fileID: 0}
   _spawnPoint: {fileID: 0}
   _source: {fileID: 547585757}
-  _trapedClip: {fileID: 8300000, guid: 3633e25d6037818448daba5c4913090b, type: 3}
 --- !u!114 &7982353709949847947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +102,11 @@ MonoBehaviour:
   _sideSpeed: 7
   _walkClip: {fileID: 8300000, guid: 4757b5e3f722a9d4da9600ebc7d80ada, type: 3}
   _source: {fileID: 547585757}
+  _trapedClip: {fileID: 8300000, guid: 3633e25d6037818448daba5c4913090b, type: 3}
   _walkClipDelay: 0.26
+  _trapPower: 7
+  _forceTime: 2
+  _sparksParticle: {fileID: 1272300920791442326}
 --- !u!82 &547585757
 AudioSource:
   m_ObjectHideFlags: 0
@@ -244,6 +244,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1494016004305977765}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCardRemoved:
     m_PersistentCalls:
       m_Calls: []
@@ -260,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skins:
-  - _skinPrefab: {fileID: 61652435807985844, guid: 94a73bc1492e4d940988732a7c16b8e7, type: 3}
+  - _skinPrefab: {fileID: 7197652492161626368, guid: e981bfda6e6e2874fb4ed549fa4b0804, type: 3}
     _imagePrefab: {fileID: 4441085146176208577, guid: c27190b615ebbd047aefb95f9cf66c44, type: 3}
     _needMoney: 150
 --- !u!1001 &7514669734223777497

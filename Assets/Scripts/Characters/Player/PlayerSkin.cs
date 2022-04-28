@@ -7,12 +7,22 @@ public class SkinData
 {
     [SerializeField] private GameObject _skinPrefab;
     [SerializeField] private UI_Skin _imagePrefab;
-    [Range(20, 500)]
-    [SerializeField] private int _needMoney = 60;
+    [Range(1, 10)]
+    [SerializeField] private int _needLevels = 2;
 
     public GameObject SkinPrefab => _skinPrefab;
     public UI_Skin ImagePrefab => _imagePrefab;
-    public int NeedMoney => _needMoney;
+    public int NeedLevels => _needLevels;
+
+    [HideInInspector] public int LevelsCount;
+
+    public float Progress
+    {
+        get
+        {
+            return (float)LevelsCount / NeedLevels;
+        }
+    }
 }
 
 public class PlayerSkin : MonoBehaviour
@@ -20,10 +30,15 @@ public class PlayerSkin : MonoBehaviour
     [SerializeField] private List<SkinData> _skins = new List<SkinData>();
 
     private int _current = -1;
-    private float progress = 0;
     private GameObject _currentSkinObject;
+
     [Inject]
     private Robbery _robbery;
+
+    private void Start()
+    {
+        _robbery.OnSuccess.AddListener(AddProgress);
+    }
 
     public SkinData Next
     {
@@ -43,20 +58,14 @@ public class PlayerSkin : MonoBehaviour
         _currentSkinObject = GetComponentInChildren<Animator>().gameObject;
     }
 
-    public void AddProgress(float p)
+    public void AddProgress()
     {
-        progress += p;
+        if (Next == null) return;
 
-        if (progress >= 1 && Next != null)
-        {
-            NextSkin();
-            progress = 0;
-        }
-
+        Next.LevelsCount++; 
     }
 
-
-    private void NextSkin()
+    public void ChangeToNext()
     {
         if (_current < _skins.Count)
             _current++;

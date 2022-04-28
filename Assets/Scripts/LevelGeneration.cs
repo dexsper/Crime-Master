@@ -51,6 +51,8 @@ public class LevelGeneration : MonoBehaviour
 
     private void Generate(Level level)
     {
+        Clear();
+
         int count = (int)(Vector3.Distance(_start.position, _end.position) / _moneySpacing.y);
         var cards = _levelManager.CurrentLevel.Cards;
         int currentCard = 0;
@@ -93,6 +95,19 @@ public class LevelGeneration : MonoBehaviour
 
                 SpawnMoney(pos);
             }
+        }
+    }
+
+    private void Clear()
+    {
+        for (int i = 0; i < _moneyParent.childCount; i++)
+        {
+            Destroy(_moneyParent.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < _cardsParent.childCount; i++)
+        {
+           Destroy(_cardsParent.GetChild(i).gameObject);
         }
     }
 

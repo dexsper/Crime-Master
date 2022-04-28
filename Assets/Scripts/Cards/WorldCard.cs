@@ -21,7 +21,6 @@ public class WorldCard : BaseInteractable
         {
             _player.Economics.Take(_uiCard.Info.Cost);
             _player.Inventory.AddCard(_uiCard.Info);
-            _player.PlayGoodMoodParticles();
         }
         else
         {

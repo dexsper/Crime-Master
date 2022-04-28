@@ -38,26 +38,33 @@ public class FinalScreen : Panel
         transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         _losePanel.transform.localScale = Vector3.zero;
         _losePanel.gameObject.SetActive(true);
-        _losePanel.transform.DOScale(Vector3.one, 0.5f);
+        _losePanel.transform.DOScale(Vector3.one, 0.5f).From(Vector3.zero);
 
         OnShow?.Invoke();
     }
 
     public void ShowSuccess()
     {
-        var uiSkin = Instantiate(_player.Skin.Next.ImagePrefab, _characterIconParent);
 
         transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         _successPanel.transform.localScale = Vector3.zero;
         _successPanel.gameObject.SetActive(true);
-        _successPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
+
+        var uiSkin = Instantiate(_player.Skin.Next.ImagePrefab, _characterIconParent);
+
+        _successPanel.transform.DOScale(Vector3.one, 0.5f).From(Vector3.zero).SetEase(Ease.OutBack).OnComplete(() =>
         {
-            float progress = Mathf.Clamp01((float)_player.Economics.EarnedMoney / (float)_player.Skin.Next.NeedMoney);
+            if (_player.Skin.Next == null)
+                return;
+
+            float progress = _player.Skin.Next.Progress;
+
+            if (progress >= 1)
+            {
+                _player.Skin.ChangeToNext();
+            }
 
             uiSkin.UpdateProgress(progress);
-
-            _player.Skin.AddProgress(progress);
-
         });
 
         if (_earnedText != null)
