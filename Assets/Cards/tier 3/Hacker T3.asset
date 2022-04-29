@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b81f4e6a8e83a4842953d1a4a4874609, type: 3}
-  m_Name: Sal Sapone
+  m_Name: Hacker T3
   m_EditorClassIdentifier: 
-  _name: Sal Sapone
-  _cost: 120
-  _tier: 3
-  _power: 6
-  _terrifying: 4
-  _intellect: 13
-  _iconSprite: {fileID: 21300000, guid: b8f166e7194ac584390fe0704497264c, type: 3}
+  _name: Hacker
+  _cost: 65
+  _tier: 2
+  _power: 3
+  _terrifying: 3
+  _intellect: 9
+  _iconSprite: {fileID: 21300000, guid: 9584fed9441a03e42863db1942e6f786, type: 3}

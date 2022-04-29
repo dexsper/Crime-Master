@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _percentageAmount: 10
-  _destroyTime: 1.5
+  _destroyTime: 1
   _notifyColor: {r: 1, g: 0, b: 0, a: 1}
-  _destroyEffect: {fileID: 0}
+  _destroyEffect: {fileID: 4939073939269175663, guid: f798ef721e3e3bc44984d445b6924436, type: 3}
 --- !u!65 &6553926129475187300
 BoxCollider:
   m_ObjectHideFlags: 0

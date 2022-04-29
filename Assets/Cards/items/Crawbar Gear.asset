@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b81f4e6a8e83a4842953d1a4a4874609, type: 3}
-  m_Name: Big Bobby
+  m_Name: Crawbar Gear
   m_EditorClassIdentifier: 
-  _name: Big Bobby
-  _cost: 45
-  _tier: 3
-  _power: 9
-  _terrifying: 4
+  _name: Crawbar
+  _cost: 60
+  _tier: 4
+  _power: 4
+  _terrifying: 2
   _intellect: 0
-  _iconSprite: {fileID: 21300000, guid: 7113e21c9289fcd4dbf9efffc1417f36, type: 3}
+  _iconSprite: {fileID: 21300000, guid: 5a0b350675a3a284d851a4b5f82d0086, type: 3}

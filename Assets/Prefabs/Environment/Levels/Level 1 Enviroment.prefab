@@ -3345,7 +3345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 658213767596529415, guid: 5a3ced0263bbe3b4780fdcac00fc6c00, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.19
+      value: 49.01
       objectReference: {fileID: 0}
     - target: {fileID: 658213767596529415, guid: 5a3ced0263bbe3b4780fdcac00fc6c00, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3379,14 +3379,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: transport_purpose
       objectReference: {fileID: 0}
-    - target: {fileID: 2121592079814770603, guid: 5a3ced0263bbe3b4780fdcac00fc6c00, type: 3}
-      propertyPath: _destroyTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2121592079814770603, guid: 5a3ced0263bbe3b4780fdcac00fc6c00, type: 3}
-      propertyPath: _destroyEffect
-      value: 
-      objectReference: {fileID: 4939073939269175663, guid: f798ef721e3e3bc44984d445b6924436, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a3ced0263bbe3b4780fdcac00fc6c00, type: 3}
 --- !u!4 &4184372446300845673 stripped

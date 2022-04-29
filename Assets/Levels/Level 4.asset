@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e437ed1bae947844c8bd2f72a0f09abf, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  _levelName: Call of Guty
+  _safeSprite: {fileID: 21300000, guid: 374e76154b0517643aaacd0fa1f546af, type: 3}
+  _rabberyField: {fileID: 365939681501003001, guid: 30605e0c1e885c542a91540e1f1cb649, type: 3}
+  _enviromentPrefab: {fileID: 6340456125932183385, guid: 2e38c8977ee8bf64ea7f0fa1e4465d60, type: 3}
+  _cards:
+  - CardOne: {fileID: 11400000, guid: fc44c861e9bc0144e9fdcfa95ceffb6e, type: 2}
+    CardTwo: {fileID: 11400000, guid: 2e739811e7fe1ae4bad0659466248888, type: 2}
+  - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
+    CardTwo: {fileID: 11400000, guid: 3af3a5c6879fea24fa07374934f34e64, type: 2}
+  - CardOne: {fileID: 11400000, guid: e69f237d3a394104cba7e081d30d70bc, type: 2}
+    CardTwo: {fileID: 11400000, guid: 352ea37116c0ec747b876eef5c4645de, type: 2}
+  - CardOne: {fileID: 11400000, guid: 382df63d1e82a724d9204ef3c3cade29, type: 2}
+    CardTwo: {fileID: 11400000, guid: 645aac2914b0bd045bf0c9b09f77b4a6, type: 2}

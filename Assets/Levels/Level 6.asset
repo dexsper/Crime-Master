@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e437ed1bae947844c8bd2f72a0f09abf, type: 3}
+  m_Name: Level 6
+  m_EditorClassIdentifier: 
+  _levelName: Country road
+  _safeSprite: {fileID: 21300000, guid: 5a0b350675a3a284d851a4b5f82d0086, type: 3}
+  _rabberyField: {fileID: 7040790320609165415, guid: c3204cf46c9ca9b41ac5e8678f213009, type: 3}
+  _enviromentPrefab: {fileID: 3732447664428142322, guid: 1289d00ab71d2b74b9b6aca68e276029, type: 3}
+  _cards:
+  - CardOne: {fileID: 11400000, guid: fc44c861e9bc0144e9fdcfa95ceffb6e, type: 2}
+    CardTwo: {fileID: 11400000, guid: 352ea37116c0ec747b876eef5c4645de, type: 2}
+  - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
+    CardTwo: {fileID: 11400000, guid: d8b30c78919c05c4f900ad6b03b4e194, type: 2}
+  - CardOne: {fileID: 11400000, guid: 3af3a5c6879fea24fa07374934f34e64, type: 2}
+    CardTwo: {fileID: 11400000, guid: 0e974d0979b42c5428962319299fc1e0, type: 2}
+  - CardOne: {fileID: 11400000, guid: 1130b505771b8fa49aecce9f77934071, type: 2}
+    CardTwo: {fileID: 11400000, guid: 01e05540af5be8f47af6cc6c24b4e866, type: 2}

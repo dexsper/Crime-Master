@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rifle Gear
   m_EditorClassIdentifier: 
   _name: M4 Rifle
-  _cost: 80
+  _cost: 60
   _tier: 4
   _power: 5
   _terrifying: 8

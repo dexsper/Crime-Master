@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Hacker
   _cost: 35
   _tier: 0
-  _power: 3
-  _terrifying: 2
-  _intellect: 4
+  _power: 1
+  _terrifying: 1
+  _intellect: 5
   _iconSprite: {fileID: 21300000, guid: 9584fed9441a03e42863db1942e6f786, type: 3}

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e437ed1bae947844c8bd2f72a0f09abf, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
-  _levelName: Final Deal
+  _levelName: Expencive Deal
   _safeSprite: {fileID: 21300000, guid: 67c1794ce3ef49944a72a33103e84282, type: 3}
   _rabberyField: {fileID: 6442984456046906260, guid: 3764f520eee5aa84dae032ab93266f5d, type: 3}
-  _enviromentPrefab: {fileID: 70961931766986402, guid: bd20b8de8d35da14caa3cb18b0d3ceb2, type: 3}
+  _enviromentPrefab: {fileID: 6340456125932183385, guid: 2e38c8977ee8bf64ea7f0fa1e4465d60, type: 3}
   _cards:
   - CardOne: {fileID: 11400000, guid: 382df63d1e82a724d9204ef3c3cade29, type: 2}
     CardTwo: {fileID: 11400000, guid: 352ea37116c0ec747b876eef5c4645de, type: 2}
@@ -23,5 +23,7 @@ MonoBehaviour:
     CardTwo: {fileID: 11400000, guid: 1130b505771b8fa49aecce9f77934071, type: 2}
   - CardOne: {fileID: 11400000, guid: ee40422ac38223349a9a41793ac46ea5, type: 2}
     CardTwo: {fileID: 11400000, guid: 1130b505771b8fa49aecce9f77934071, type: 2}
+  - CardOne: {fileID: 11400000, guid: d8b30c78919c05c4f900ad6b03b4e194, type: 2}
+    CardTwo: {fileID: 11400000, guid: 1fc48194a3a72ee469728f6f4064df26, type: 2}
   - CardOne: {fileID: 11400000, guid: 01e05540af5be8f47af6cc6c24b4e866, type: 2}
     CardTwo: {fileID: 11400000, guid: 0e974d0979b42c5428962319299fc1e0, type: 2}
