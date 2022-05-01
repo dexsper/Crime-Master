@@ -274,7 +274,8 @@ MonoBehaviour:
   _skins:
   - _skinPrefab: {fileID: 7197652492161626368, guid: e981bfda6e6e2874fb4ed549fa4b0804, type: 3}
     _imagePrefab: {fileID: 4441085146176208577, guid: c27190b615ebbd047aefb95f9cf66c44, type: 3}
-    _needMoney: 150
+    _needLevels: 4
+    LevelsCount: 0
 --- !u!1001 &7514669734223777497
 PrefabInstance:
   m_ObjectHideFlags: 0
