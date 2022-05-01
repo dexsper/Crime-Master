@@ -78,9 +78,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0465c6caff9e7ac42b57842c2f8cb2d1, type: 2}
   - {fileID: 11400000, guid: 70a7188f60fe1ac44a347ecbf679e7fc, type: 2}
   - {fileID: 11400000, guid: 28eb579dca4068340916086b83be90d6, type: 2}
-  OnNextLevel:
-    m_PersistentCalls:
-      m_Calls: []
+  - {fileID: 11400000, guid: e7441d7b9abbf154a947dfd373c3783d, type: 2}
+  - {fileID: 11400000, guid: f91950ff8f985a44f90f7821bd43066e, type: 2}
+  - {fileID: 11400000, guid: e28189546d8e74b4b994240d78e6a90c, type: 2}
+  - {fileID: 11400000, guid: 800ab4626c92d344ab7daf499cadc229, type: 2}
   LevelChanged:
     m_PersistentCalls:
       m_Calls: []

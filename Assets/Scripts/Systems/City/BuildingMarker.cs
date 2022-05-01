@@ -14,7 +14,9 @@ public class BuildingMarker : MonoBehaviour, IPointerDownHandler
     private MeshRenderer _meshRenderer;
     [Inject]
     private LevelStart _levelStart;
+
     private Level _level;
+
     [Inject]
     private LevelManager _levelManager;
 

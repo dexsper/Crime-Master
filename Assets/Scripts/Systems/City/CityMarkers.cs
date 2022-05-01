@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -29,21 +30,31 @@ public class CityMarkers : MonoBehaviour
 
     private void UpdateMarkers()
     {
-        for (int i = 0; i < _levelManager.Levels.Count; i++)
+        List<Level> levelList = new List<Level>();
+
+        if (_completedLevels.Count == 0)
         {
-            var level = _levelManager.Levels[i];
+            levelList.Add(_levelManager.Levels[0]);
+        }
+        else
+        {
+            levelList = _levelManager.Levels.Where(x => !_completedLevels.Contains(x)).ToList();
+        }
 
-            if (i >= _buildings.Length)
-                break;
+        ShowLevels(levelList);
+    }
 
-
-            if (_completedLevels.Contains(level))
+    private void ShowLevels(List<Level> levels)
+    {
+        for (int i = 0; i < _buildings.Length; i++)
+        {
+            if (i >= levels.Count)
             {
                 _buildings[i].SetEnable(false);
                 continue;
             }
 
-            _buildings[i].SetLevel(level);
+            _buildings[i].SetLevel(levels[i]);
         }
     }
 }
