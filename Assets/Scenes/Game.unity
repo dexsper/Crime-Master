@@ -8273,6 +8273,14 @@ PrefabInstance:
       propertyPath: OnCardAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1288236765}
+    - target: {fileID: 547585756, guid: d353e3d25cf35e14faf54638a034d4ff, type: 3}
+      propertyPath: OnCardAdded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7982353710835536004}
+    - target: {fileID: 547585756, guid: d353e3d25cf35e14faf54638a034d4ff, type: 3}
+      propertyPath: OnCardAdded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 7982353709949847942, guid: d353e3d25cf35e14faf54638a034d4ff, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8329,8 +8337,22 @@ PrefabInstance:
       propertyPath: _textNotify
       value: 
       objectReference: {fileID: 2081889972}
+    - target: {fileID: 7982353709949847947, guid: d353e3d25cf35e14faf54638a034d4ff, type: 3}
+      propertyPath: _sparksParticle
+      value: 
+      objectReference: {fileID: 7982353710835536005}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d353e3d25cf35e14faf54638a034d4ff, type: 3}
+--- !u!198 &7982353710835536004 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1272300920791442326, guid: d353e3d25cf35e14faf54638a034d4ff, type: 3}
+  m_PrefabInstance: {fileID: 7982353710835536003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7982353710835536005 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1494016004305977765, guid: d353e3d25cf35e14faf54638a034d4ff, type: 3}
+  m_PrefabInstance: {fileID: 7982353710835536003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &8095616088591347277
 MeshRenderer:
   m_ObjectHideFlags: 0
