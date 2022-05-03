@@ -40,7 +40,6 @@ public class Robbery : Panel
         }
     }
 
-    public List<CardPlace> Places => _places;
     [HideInInspector] public UnityEvent OnChanceChanged;
 
     private float _chance = 0f;
@@ -54,7 +53,8 @@ public class Robbery : Panel
     private DiContainer _container;
     [Inject]
     private CameraController _cameraController;
-    private List<CardPlace> _places = new List<CardPlace>();
+    public List<CardPlace> Places { get;private set; } = new List<CardPlace>();
+    public List<UI_Card> Cards { get; private set; } = new List<UI_Card>();
 
     private bool isStart = false;
 
@@ -80,12 +80,12 @@ public class Robbery : Panel
     {
         isStart = false;
 
-        for (int i = 0; i < _places.Count; i++)
+        for (int i = 0; i < Places.Count; i++)
         {
-            _places[i].OnPlaced.RemoveAllListeners();
+            Places[i].OnPlaced.RemoveAllListeners();
         }
 
-        _places.Clear();
+        Places.Clear();
 
         for (int i = 0; i < _placesParent.childCount; i++)
         {
@@ -164,12 +164,16 @@ public class Robbery : Panel
 
     private void SetupCards()
     {
+        Cards.Clear();
+
         for (int i = 0; i < _player.Inventory.Cards.Count; i++)
         {
             var card = Instantiate(_cardPrefab);
             card.Setup(_player.Inventory.Cards[i]);
 
             card.transform.SetParent(_cardsParent);
+
+            Cards.Add(card);
         }
     }
     private void SetupPlaces()
@@ -185,7 +189,7 @@ public class Robbery : Panel
             place.ResetInfo();
             place.gameObject.SetActive(true);
 
-            _places.Add(place);
+            Places.Add(place);
 
             place.OnPlaced.AddListener(UpdateChance);
             place.OnPlaced.AddListener(UpdateStartButton);
@@ -198,9 +202,9 @@ public class Robbery : Panel
 
         bool enabled = false;
 
-        for (int i = 0; i < _places.Count; i++)
+        for (int i = 0; i < Places.Count; i++)
         {
-            if (_places[i].HasCard)
+            if (Places[i].HasCard)
             {
                 enabled = true;
                 break;
@@ -216,17 +220,17 @@ public class Robbery : Panel
         float chance = 0f;
         float power = 0f;
 
-        if (_places.Count > 0)
+        if (Places.Count > 0)
         {
-            for (int i = 0; i < _places.Count; i++)
+            for (int i = 0; i < Places.Count; i++)
             {
-                chance += _places[i].Chance;
+                chance += Places[i].Chance;
 
-                if (_places[i].HasCard)
-                    power += _places[i].CardInfo.Power;
+                if (Places[i].HasCard)
+                    power += Places[i].CardInfo.Power;
             }
 
-            chance = Mathf.Clamp01(chance / _places.Count);
+            chance = Mathf.Clamp01(chance / Places.Count);
         }
 
         Chance = chance;

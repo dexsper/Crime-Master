@@ -20,9 +20,12 @@ public class PlayerTraining : MonoBehaviour
     private LevelStart _levelStart;
     private List<Level> _completedLevels = new List<Level>();
     private Camera _camera;
+    [Inject]
+    private Robbery _robbery;
 
     private bool _cityCursorShowed = false;
     private bool _levelCursorShowed = false;
+    private bool _cardTragged = false;
 
     [Inject]
     private IInput _input;
@@ -32,8 +35,51 @@ public class PlayerTraining : MonoBehaviour
         _cityMarkers.OnMarkersUpdated += OnMarkersUpdated;
         _levelStart.OnShow.AddListener(OnStartShow);
         _cameraController.OnPlayerShow.AddListener(OnPlayerShow);
-
+        _robbery.OnShow.AddListener(OnRobberyShow);
+        CardDrag.OnStartDrag += OnCardDrag;
         _camera = Camera.main;
+    }
+
+    private void OnCardDrag()
+    {
+        _cardTragged = true;
+    }
+
+    private void OnRobberyShow()
+    {
+        if (_cardTragged) return;
+
+        StartCoroutine(ShowCardDragAnimation());
+    }
+
+    private IEnumerator ShowCardDragAnimation()
+    {
+        _cursor.gameObject.SetActive(false);
+        _cursor.anchoredPosition = new Vector2(0, -450f);
+        _cursor.gameObject.SetActive(true);
+
+        _cursor.transform.DOScale(Vector3.one * .5f, .6f).SetEase(Ease.Linear);
+        yield return new WaitForSeconds(1.2f);
+
+        Vector2 placePos = _robbery.Places[0].GetComponent<RectTransform>().anchoredPosition;
+        placePos.y += 100f;
+
+        _cursor.DOAnchorPos(placePos, 1f);
+
+        yield return new WaitForSeconds(1f);
+
+        _cursor.transform.DOScale(Vector3.one, .6f).SetEase(Ease.Linear);
+
+        yield return new WaitForSeconds(1.2f);
+
+        while (!_cardTragged)
+        {
+            yield return ShowCardDragAnimation();
+        }
+
+        _cursor.gameObject.SetActive(false);
+
+        StopAllCoroutines();
     }
 
     private void Start()
@@ -61,7 +107,6 @@ public class PlayerTraining : MonoBehaviour
             _cityCursorShowed = true;
         }
     }
-
     private void OnMarkersUpdated()
     {
         if (_completedLevels.Count == 0 && !_cityCursorShowed)
@@ -92,6 +137,21 @@ public class PlayerTraining : MonoBehaviour
 
         _levelCursorShowed = true;
     }
+    private IEnumerator ShowMarkerTap()
+    {
+        var first = _cityMarkers.ActiveMarkers[0];
+        _cursor.gameObject.SetActive(true);
+
+        _cursor.transform.position = _camera.WorldToScreenPoint(first.transform.position);
+
+        while (!_cityCursorShowed)
+        {
+            CursorSizeAnimation();
+            yield return new WaitForSeconds(1.2f);
+        }
+
+        StopAllCoroutines();
+    }
 
     private IEnumerator CursorHorizontalMove(float range)
     {
@@ -104,25 +164,14 @@ public class PlayerTraining : MonoBehaviour
 
         yield return CursorHorizontalMove(range);
     }
-
-    private IEnumerator ShowMarkerTap()
+    private void CursorSizeAnimation()
     {
-        var first = _cityMarkers.ActiveMarkers[0];
-        _cursor.gameObject.SetActive(true);
+        float animationLength = 0.6f;
+        _cursor.transform.DOScale(Vector3.one * .5f, animationLength).SetEase(Ease.InOutBack).OnComplete(() =>
+        {
 
-        _cursor.transform.position = _camera.WorldToScreenPoint(first.transform.position);
-
-        yield return CursorSizeAnimation();
-    }
-
-    private IEnumerator CursorSizeAnimation()
-    {
-        float animationLength = 0.3f;
-        yield return new WaitForSeconds(1.2f);
-        _cursor.transform.DOScale(Vector3.one * .5f, animationLength).SetEase(Ease.InOutBack);
-        yield return new WaitForSeconds(animationLength);
-        _cursor.transform.DOScale(Vector3.one, animationLength).SetEase(Ease.InOutBack);
-        yield return CursorSizeAnimation();
+            _cursor.transform.DOScale(Vector3.one, animationLength).SetEase(Ease.InOutBack);
+        });
     }
 
     private void CompleteLevel()

@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine.Events;
+using System;
 
 public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -14,7 +15,7 @@ public class CardDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
 
     private Vector3 defaultScale;
 
-    public UnityEvent OnStartDrag;
+    public static event Action OnStartDrag;
 
     private void Awake()
     {
