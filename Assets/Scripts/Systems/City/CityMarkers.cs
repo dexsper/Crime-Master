@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class CityMarkers : MonoBehaviour
     private Robbery _robbery;
 
     private List<Level> _completedLevels = new List<Level>();
+    public event Action OnMarkersUpdated;
+    public List<BuildingMarker> ActiveMarkers { get; private set; } = new List<BuildingMarker>();
 
     private void Start()
     {
@@ -46,6 +49,8 @@ public class CityMarkers : MonoBehaviour
 
     private void ShowLevels(List<Level> levels)
     {
+        ActiveMarkers.Clear();
+
         for (int i = 0; i < _buildings.Length; i++)
         {
             if (i >= levels.Count)
@@ -55,6 +60,9 @@ public class CityMarkers : MonoBehaviour
             }
 
             _buildings[i].SetLevel(levels[i]);
+            ActiveMarkers.Add(_buildings[i]);
         }
+
+        OnMarkersUpdated?.Invoke();
     }
 }
