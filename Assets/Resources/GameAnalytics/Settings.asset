@@ -25,16 +25,22 @@ MonoBehaviour:
   UserMessagesSubmitted: 0
   UserMessagesFailed: 0
   CustomArea: 
-  gameKey: []
-  secretKey: []
-  Build: []
-  SelectedPlatformOrganization: []
-  SelectedPlatformStudio: []
-  SelectedPlatformGame: []
-  SelectedPlatformGameID: 
-  SelectedOrganization: 
-  SelectedStudio: 
-  SelectedGame: 
+  gameKey:
+  - 993c8cac840231c458f78840ef20c3fd
+  secretKey:
+  - fb6edab5fc03bddacbdd9890a771429d68988378
+  Build:
+  - 0.1
+  SelectedPlatformOrganization:
+  - Scienart
+  SelectedPlatformStudio:
+  - Scienart Games
+  SelectedPlatformGame:
+  - Crime Master
+  SelectedPlatformGameID: c6090300
+  SelectedOrganization: 01000000
+  SelectedStudio: 01000000
+  SelectedGame: 03000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
@@ -56,7 +62,7 @@ MonoBehaviour:
   ResourceItemTypes: []
   ResourceCurrencies: []
   LastCreatedGamePlatform: -1
-  Platforms: 
+  Platforms: 0b000000
   CurrentInspectorState: 1
   ClosedHints: 
   DisplayHints: 0
@@ -84,7 +90,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 
+  PlatformFoldOut: 01
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0

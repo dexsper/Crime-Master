@@ -7827,6 +7827,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2034412031}
     m_Modifications:
+    - target: {fileID: 1005487993927342535, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005487993927342535, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005487993927342535, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005487993927342535, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 170.211
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005487993927342535, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -115.89876
+      objectReference: {fileID: 0}
     - target: {fileID: 3631179447025461629, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
       propertyPath: _cityCamera
       value: 
@@ -7843,6 +7863,26 @@ PrefabInstance:
       propertyPath: OnShow.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1841818507}
+    - target: {fileID: 7063128309159428023, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063128309159428023, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063128309159428023, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063128309159428023, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 170.211
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063128309159428023, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -198.4446
+      objectReference: {fileID: 0}
     - target: {fileID: 7389988908862472435, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7934,6 +7974,30 @@ PrefabInstance:
     - target: {fileID: 7389988909224999822, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
       propertyPath: m_Name
       value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389988909224999822, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538587725448704269, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538587725448704269, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538587725448704269, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538587725448704269, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 170.211
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538587725448704269, guid: 44af5b9dfb8eee743b14619385411617, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.352917
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44af5b9dfb8eee743b14619385411617, type: 3}

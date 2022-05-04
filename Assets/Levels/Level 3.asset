@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e437ed1bae947844c8bd2f72a0f09abf, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
-  _levelName: Expencive Deal
+  _levelName: Expensive Deal
   _safeSprite: {fileID: 21300000, guid: 67c1794ce3ef49944a72a33103e84282, type: 3}
   _rabberyField: {fileID: 6442984456046906260, guid: 3764f520eee5aa84dae032ab93266f5d, type: 3}
   _enviromentPrefab: {fileID: 6340456125932183385, guid: 2e38c8977ee8bf64ea7f0fa1e4465d60, type: 3}
