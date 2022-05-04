@@ -51,8 +51,14 @@ public class FinalScreen : Panel
         transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         _successPanel.transform.localScale = Vector3.zero;
         _successPanel.gameObject.SetActive(true);
-        if (_player.Skin.Next == null)
+
+        if (_player.Skin.Next != null)
         {
+            for (int i = 0; i < _characterIconParent.childCount; i++)
+            {
+                Destroy(_characterIconParent.GetChild(i).gameObject);
+            }
+
             _tempSkin = Instantiate(_player.Skin.Next.ImagePrefab, _characterIconParent);
         }
 
@@ -89,11 +95,5 @@ public class FinalScreen : Panel
         _player.gameObject.SetActive(true);
         _successPanel.gameObject.SetActive(false);
         _losePanel.gameObject.SetActive(false);
-
-
-        for (int i = 0; i < _characterIconParent.childCount; i++)
-        {
-            Destroy(_characterIconParent.GetChild(i).gameObject);
-        }
     }
 }
