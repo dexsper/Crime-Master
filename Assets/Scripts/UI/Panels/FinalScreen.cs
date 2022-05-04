@@ -43,14 +43,18 @@ public class FinalScreen : Panel
         OnShow?.Invoke();
     }
 
+    UI_Skin _tempSkin;
+
     public void ShowSuccess()
     {
 
         transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
         _successPanel.transform.localScale = Vector3.zero;
         _successPanel.gameObject.SetActive(true);
-
-        var uiSkin = Instantiate(_player.Skin.Next.ImagePrefab, _characterIconParent);
+        if (_player.Skin.Next == null)
+        {
+            _tempSkin = Instantiate(_player.Skin.Next.ImagePrefab, _characterIconParent);
+        }
 
         _successPanel.transform.DOScale(Vector3.one, 0.5f).From(Vector3.zero).SetEase(Ease.OutBack).OnComplete(() =>
         {
@@ -64,7 +68,7 @@ public class FinalScreen : Panel
                 _player.Skin.ChangeToNext();
             }
 
-            uiSkin.UpdateProgress(progress);
+            _tempSkin.UpdateProgress(progress);
         });
 
         if (_earnedText != null)
